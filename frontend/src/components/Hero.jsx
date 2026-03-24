@@ -1,253 +1,139 @@
 import React from "react";
 
-const CLOUDINARY_HERO = "https://res.cloudinary.com/dtqrzl2qg/image/upload/v1748930400/hero-tech_sample.jpg";
-
 export default function Hero({ onOpenDrawer }) {
+  const stats = [
+    { value: "16", label: "Lessons" },
+    { value: "3rd", label: "Year Level" },
+    { value: "S3A", label: "Section" },
+    { value: "2024", label: "Academic Year" },
+  ];
+
+  const chips = [
+    { icon: "🖥️", label: "Hardware", style: { top: "14%", left: "8%" } },
+    { icon: "🤖", label: "AI & ML", style: { top: "22%", right: "6%" } },
+    { icon: "☁️", label: "Cloud", style: { bottom: "28%", left: "5%" } },
+    { icon: "🔐", label: "Security", style: { bottom: "20%", right: "9%" } },
+    { icon: "🌐", label: "Web", style: { top: "58%", left: "2%" } },
+    { icon: "📡", label: "IoT", style: { top: "45%", right: "3%" } },
+  ];
+
   return (
-    <section
-      id="home"
-      className="blob-bg min-h-screen flex items-center relative"
-      style={{ paddingTop: "80px" }}
-    >
-      {/* Large decorative circles */}
-      <div
-        style={{
-          position: "absolute",
-          top: "10%",
-          right: "-5%",
-          width: "480px",
-          height: "480px",
-          background: "radial-gradient(circle, rgba(252,184,25,0.18) 0%, transparent 70%)",
-          borderRadius: "50%",
+    <section id="home" className="dot-grid" style={{
+      minHeight: "100vh", display: "flex", flexDirection: "column",
+      justifyContent: "center", alignItems: "center",
+      paddingTop: "62px", position: "relative", overflow: "hidden",
+      borderBottom: "1px solid rgba(255,255,255,0.07)",
+    }}>
+      {/* Background glow blobs */}
+      <div style={{
+        position: "absolute", top: "30%", left: "50%", transform: "translate(-50%,-50%)",
+        width: "600px", height: "600px", pointerEvents: "none",
+        background: "radial-gradient(circle, rgba(139,60,247,0.12) 0%, transparent 65%)",
+        borderRadius: "50%",
+      }} />
+      <div style={{
+        position: "absolute", top: "15%", right: "-5%",
+        width: "380px", height: "380px", pointerEvents: "none",
+        background: "radial-gradient(circle, rgba(244,114,182,0.09) 0%, transparent 65%)",
+        borderRadius: "50%",
+      }} />
+      <div style={{
+        position: "absolute", bottom: "10%", left: "-5%",
+        width: "320px", height: "320px", pointerEvents: "none",
+        background: "radial-gradient(circle, rgba(254,243,199,0.06) 0%, transparent 65%)",
+        borderRadius: "50%",
+      }} />
+
+      {/* Floating tech chips */}
+      {chips.map((c) => (
+        <div key={c.label} className="float-anim" style={{
+          position: "absolute", ...c.style,
+          background: "rgba(16,16,16,0.85)", backdropFilter: "blur(12px)",
+          border: "1px solid rgba(255,255,255,0.09)", borderRadius: "999px",
+          padding: "7px 14px", display: "flex", alignItems: "center", gap: "7px",
+          fontSize: "12px", fontFamily: "'DM Mono', monospace", color: "rgba(250,250,250,0.55)",
           pointerEvents: "none",
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          bottom: "5%",
-          left: "-8%",
-          width: "360px",
-          height: "360px",
-          background: "radial-gradient(circle, rgba(242,120,0,0.15) 0%, transparent 70%)",
-          borderRadius: "50%",
-          pointerEvents: "none",
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          top: "40%",
-          left: "30%",
-          width: "200px",
-          height: "200px",
-          background: "radial-gradient(circle, rgba(212,56,40,0.1) 0%, transparent 70%)",
-          borderRadius: "50%",
-          pointerEvents: "none",
-        }}
-      />
+        }}>
+          <span>{c.icon}</span><span>{c.label}</span>
+        </div>
+      ))}
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
-          <div className="fade-in-up">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 mb-6">
-              <span className="lesson-badge">BSIT-S3A · AY 2024–2025</span>
-            </div>
+      {/* Main content */}
+      <div style={{ maxWidth: "860px", width: "100%", padding: "0 24px", textAlign: "center", position: "relative", zIndex: 1 }}>
 
-            <h1
-              className="font-black leading-none mb-4"
-              style={{
-                fontSize: "clamp(2.5rem, 5vw, 4rem)",
-                color: "#0d3b4e",
-                letterSpacing: "-0.03em",
-              }}
-            >
-              Computer System{" "}
-              <span
-                style={{
-                  background: "linear-gradient(135deg, #D43828, #F27800)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
-                &amp; Platform
-              </span>
-              <br />
-              Technologies
-            </h1>
-
-            <p
-              className="text-lg mb-8 max-w-lg leading-relaxed"
-              style={{ color: "rgba(13,59,78,0.7)" }}
-            >
-              Your complete guide to understanding computing systems—from hardware fundamentals
-              to cutting-edge AI and IoT platforms. Explore 16 comprehensive lessons curated for BSIT students.
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-3 mb-10">
-              <button
-                onClick={onOpenDrawer}
-                className="clay-btn px-7 py-3 text-sm font-bold text-white"
-                style={{
-                  background: "linear-gradient(135deg, #0d3b4e, #1a5a75)",
-                  border: "2px solid rgba(255,255,255,0.25)",
-                }}
-              >
-                📚 Browse Lessons
-              </button>
-              <a
-                href="#lesson-1"
-                className="clay-btn px-7 py-3 text-sm font-bold"
-                style={{
-                  background: "linear-gradient(135deg, #FCB819, #F27800)",
-                  color: "white",
-                  border: "2px solid rgba(255,255,255,0.4)",
-                }}
-              >
-                🚀 Start Learning
-              </a>
-            </div>
-
-            {/* Stats row */}
-            <div className="flex flex-wrap gap-4">
-              {[
-                { number: "16", label: "Lessons" },
-                { number: "3rd", label: "Year — S3A" },
-                { number: "2024", label: "Academic Year" },
-              ].map((stat) => (
-                <div
-                  key={stat.label}
-                  className="clay-card px-5 py-3 flex items-center gap-3"
-                  style={{ background: "rgba(255,255,255,0.7)" }}
-                >
-                  <span
-                    className="font-black text-2xl"
-                    style={{
-                      background: "linear-gradient(135deg, #D43828, #F27800)",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                    }}
-                  >
-                    {stat.number}
-                  </span>
-                  <span className="text-sm font-semibold" style={{ color: "#0d3b4e" }}>
-                    {stat.label}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Right: Visual */}
-          <div className="relative flex justify-center lg:justify-end">
-            {/* Main clay card visual */}
-            <div
-              className="float-anim"
-              style={{
-                position: "relative",
-                width: "100%",
-                maxWidth: "480px",
-              }}
-            >
-              {/* Main image card */}
-              <div
-                className="clay-card overflow-hidden"
-                style={{
-                  background: "rgba(255,255,255,0.75)",
-                  padding: "12px",
-                }}
-              >
-                <div
-                  style={{
-                    borderRadius: "14px",
-                    overflow: "hidden",
-                    background: "linear-gradient(135deg, #0d3b4e 0%, #1a5a75 50%, #0d3b4e 100%)",
-                    aspectRatio: "16/10",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    position: "relative",
-                  }}
-                >
-                  {/* Tech grid pattern overlay */}
-                  <div style={{
-                    position: "absolute", inset: 0,
-                    backgroundImage: `
-                      linear-gradient(rgba(252,184,25,0.1) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(252,184,25,0.1) 1px, transparent 1px)
-                    `,
-                    backgroundSize: "30px 30px",
-                  }} />
-                  <div style={{ position: "relative", zIndex: 1, textAlign: "center" }}>
-                    <div style={{ fontSize: "4rem", marginBottom: "8px" }}>💻</div>
-                    <p style={{ color: "#FCB819", fontWeight: 700, fontSize: "1.1rem" }}>
-                      CSPT Learning Hub
-                    </p>
-                    <p style={{ color: "rgba(255,255,255,0.6)", fontSize: "0.75rem", marginTop: "4px" }}>
-                      16 Comprehensive Lessons
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating lesson chips */}
-              {[
-                { icon: "🖥️", label: "Hardware", top: "-18px", left: "20px", bg: "linear-gradient(135deg, #0d3b4e, #1a5a75)" },
-                { icon: "🤖", label: "AI", top: "30px", right: "-20px", bg: "linear-gradient(135deg, #D43828, #F27800)" },
-                { icon: "☁️", label: "Cloud", bottom: "-15px", left: "30px", bg: "linear-gradient(135deg, #FCB819, #F27800)" },
-                { icon: "🔐", label: "Security", bottom: "30px", right: "-15px", bg: "linear-gradient(135deg, #0d3b4e, #D43828)" },
-              ].map((chip) => (
-                <div
-                  key={chip.label}
-                  style={{
-                    position: "absolute",
-                    top: chip.top,
-                    bottom: chip.bottom,
-                    left: chip.left,
-                    right: chip.right,
-                    background: chip.bg,
-                    color: "white",
-                    padding: "6px 12px",
-                    borderRadius: "50px",
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "5px",
-                    fontSize: "0.75rem",
-                    fontWeight: 700,
-                    border: "2px solid rgba(255,255,255,0.4)",
-                    boxShadow: "4px 4px 0px rgba(0,0,0,0.15)",
-                    fontFamily: "'Poppins', sans-serif",
-                  }}
-                >
-                  {chip.icon} {chip.label}
-                </div>
-              ))}
-            </div>
-          </div>
+        {/* Badge */}
+        <div className="fade-up" style={{ marginBottom: "28px", display: "flex", justifyContent: "center" }}>
+          <span className="tag tag-purple">BSIT-S3A · AY 2024–2025</span>
         </div>
 
-        {/* Scroll indicator */}
-        <div className="flex justify-center mt-16">
-          <a
-            href="#lesson-1"
-            className="flex flex-col items-center gap-2 text-xs font-semibold"
-            style={{ color: "rgba(13,59,78,0.5)" }}
-          >
-            <span>Scroll to explore</span>
-            <div
-              style={{
-                width: "2px",
-                height: "32px",
-                background: "linear-gradient(to bottom, rgba(13,59,78,0.3), transparent)",
-                borderRadius: "2px",
-              }}
-            />
+        {/* Headline */}
+        <h1 className="fade-up-1" style={{
+          fontSize: "clamp(2.8rem, 7vw, 5.5rem)",
+          fontFamily: "'Syne', sans-serif",
+          fontWeight: 800,
+          color: "#FAFAFA",
+          letterSpacing: "-0.03em",
+          lineHeight: 1.02,
+          marginBottom: "24px",
+        }}>
+          Computer System{" "}
+          <span style={{
+            background: "linear-gradient(135deg, #8B3CF7 0%, #F472B6 100%)",
+            WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
+          }}>& Platform</span>
+          <br />Technologies
+        </h1>
+
+        {/* Sub */}
+        <p className="fade-up-2" style={{
+          fontSize: "15px", color: "rgba(250,250,250,0.5)", maxWidth: "560px",
+          margin: "0 auto 36px", lineHeight: 1.75, fontFamily: "'DM Mono', monospace",
+        }}>
+          Your complete learning hub for BSIT 3rd Year — 16 comprehensive lessons spanning hardware fundamentals to cutting-edge AI, IoT, and cloud platforms.
+        </p>
+
+        {/* CTAs */}
+        <div className="fade-up-3" style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap", marginBottom: "56px" }}>
+          <button onClick={onOpenDrawer} className="btn btn-primary">
+            <span>📚</span> Browse Lessons
+          </button>
+          <a href="#lesson-1" className="btn btn-outline">
+            <span>▶</span> Start Learning
           </a>
         </div>
+
+        {/* Stats bar */}
+        <div className="fade-up-4" style={{
+          display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "0",
+          background: "rgba(16,16,16,0.8)", border: "1px solid rgba(255,255,255,0.07)",
+          borderRadius: "10px", overflow: "hidden", backdropFilter: "blur(12px)",
+          maxWidth: "560px", margin: "0 auto",
+        }}>
+          {stats.map((s, i) => (
+            <div key={s.label} style={{
+              flex: "1 1 120px", padding: "20px 16px", textAlign: "center",
+              borderRight: i < stats.length - 1 ? "1px solid rgba(255,255,255,0.07)" : "none",
+            }}>
+              <div style={{
+                fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: "1.6rem",
+                background: i % 2 === 0
+                  ? "linear-gradient(135deg, #8B3CF7, #F472B6)"
+                  : "linear-gradient(135deg, #F472B6, #FEF3C7)",
+                WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
+                letterSpacing: "-0.03em", lineHeight: 1,
+              }}>{s.value}</div>
+              <div style={{ fontSize: "10px", fontFamily: "'DM Mono', monospace", color: "rgba(250,250,250,0.35)", letterSpacing: "0.08em", marginTop: "4px" }}>
+                {s.label}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Scroll cue */}
+      <div style={{ position: "absolute", bottom: "28px", left: "50%", transform: "translateX(-50%)", display: "flex", flexDirection: "column", alignItems: "center", gap: "6px" }}>
+        <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.1em", color: "rgba(250,250,250,0.25)", textTransform: "uppercase" }}>Scroll</span>
+        <div style={{ width: "1px", height: "28px", background: "linear-gradient(to bottom, rgba(139,60,247,0.6), transparent)" }} />
       </div>
     </section>
   );

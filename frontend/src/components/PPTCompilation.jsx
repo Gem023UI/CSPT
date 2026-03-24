@@ -1,85 +1,90 @@
 import React from "react";
 import { lessons } from "../data/lessons";
 
+const accents = [
+  { primary: "#8B3CF7", bg: "rgba(139,60,247,0.12)", border: "rgba(139,60,247,0.3)", text: "#c4a0ff" },
+  { primary: "#F472B6", bg: "rgba(244,114,182,0.1)",  border: "rgba(244,114,182,0.28)", text: "#F472B6" },
+  { primary: "#FEF3C7", bg: "rgba(254,243,199,0.07)", border: "rgba(254,243,199,0.22)", text: "#FEF3C7" },
+];
+
 export default function PPTCompilation() {
   return (
-    <section id="ppt-compilation" className="py-20" style={{ background: "rgba(13,59,78,0.04)" }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+    <section id="ppt-compilation" style={{ padding: "88px 0", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+      <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 28px" }}>
+
         {/* Header */}
-        <div className="text-center mb-14">
-          <span className="lesson-badge mb-4 inline-block">Resources</span>
-          <h2
-            className="font-black mb-4"
-            style={{ fontSize: "clamp(2rem, 4vw, 3rem)", color: "#0d3b4e", letterSpacing: "-0.03em" }}
-          >
-            PPT Compilation
-          </h2>
-          <p className="text-base max-w-2xl mx-auto" style={{ color: "rgba(13,59,78,0.65)" }}>
-            Download or view the presentation slides for each lesson in the Computer System &amp; Platform Technologies course.
-          </p>
+        <div style={{ marginBottom: "48px" }}>
+          <span className="section-label" style={{ display: "block", marginBottom: "12px" }}>Resources</span>
+          <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: "16px" }}>
+            <h2 style={{
+              fontFamily: "'Syne', sans-serif", fontWeight: 800,
+              fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)", color: "#FAFAFA", letterSpacing: "-0.025em",
+            }}>
+              PPT{" "}
+              <span style={{ background: "linear-gradient(135deg, #8B3CF7, #F472B6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+                Compilation
+              </span>
+            </h2>
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "12px", color: "rgba(250,250,250,0.4)", maxWidth: "400px", lineHeight: 1.7 }}>
+              Download or view presentation slides for each CSPT lesson.
+            </p>
+          </div>
         </div>
 
         {/* Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))", gap: "10px" }}>
           {lessons.map((lesson) => {
-            const colors = [
-              "linear-gradient(135deg, #0d3b4e, #1a5a75)",
-              "linear-gradient(135deg, #D43828, #F27800)",
-              "linear-gradient(135deg, #F27800, #FCB819)",
-            ];
-            const bg = colors[(lesson.id - 1) % 3];
-
+            const accent = accents[(lesson.id - 1) % 3];
             return (
-              <div
-                key={lesson.id}
-                className="clay-card p-4 flex flex-col"
-                style={{ background: "rgba(255,255,255,0.7)" }}
-              >
-                <div
-                  style={{
-                    height: "70px",
-                    borderRadius: "12px",
-                    background: bg,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: "1.8rem",
-                    marginBottom: "10px",
-                    border: "2px solid rgba(255,255,255,0.3)",
-                    boxShadow: "3px 3px 0px rgba(0,0,0,0.1)",
-                    position: "relative",
-                    overflow: "hidden",
-                  }}
-                >
-                  <div style={{
-                    position: "absolute", bottom: -8, right: -5,
-                    fontSize: "2.5rem", fontWeight: 900,
-                    color: "rgba(255,255,255,0.1)",
-                    fontFamily: "'Poppins', sans-serif",
-                    lineHeight: 1,
-                  }}>
-                    {String(lesson.id).padStart(2, "0")}
-                  </div>
+              <div key={lesson.id} className="panel" style={{ padding: "0", overflow: "hidden" }}>
+                {/* Top color band */}
+                <div style={{
+                  height: "64px", background: accent.bg, border: "none",
+                  borderBottom: `1px solid ${accent.border}`,
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  fontSize: "1.6rem", position: "relative", overflow: "hidden",
+                }}>
+                  <div className="grid-lines" style={{ opacity: 0.5 }} />
                   <span style={{ position: "relative", zIndex: 1 }}>{lesson.icon}</span>
+                  {/* Big watermark */}
+                  <span style={{
+                    position: "absolute", right: "-4px", bottom: "-8px",
+                    fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: "2.6rem",
+                    color: "rgba(255,255,255,0.06)", lineHeight: 1, letterSpacing: "-0.04em",
+                    userSelect: "none",
+                  }}>{String(lesson.id).padStart(2, "0")}</span>
                 </div>
 
-                <p className="text-xs font-bold mb-1" style={{ color: "#FCB819" }}>
-                  Lesson {String(lesson.id).padStart(2, "0")}
-                </p>
-                <p className="text-sm font-semibold mb-3 leading-tight flex-1" style={{ color: "#0d3b4e" }}>
-                  {lesson.shortTitle}
-                </p>
+                {/* Content */}
+                <div style={{ padding: "14px" }}>
+                  <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", color: accent.text, letterSpacing: "0.06em" }}>
+                    Lesson {String(lesson.id).padStart(2, "0")}
+                  </span>
+                  <h3 style={{
+                    fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: "13px",
+                    color: "#FAFAFA", margin: "4px 0 14px", lineHeight: 1.25,
+                  }}>{lesson.shortTitle}</h3>
 
-                <button
-                  className="clay-btn text-xs font-semibold py-2 w-full text-center"
-                  style={{
-                    background: bg,
-                    color: "white",
-                    border: "2px solid rgba(255,255,255,0.3)",
+                  <button style={{
+                    width: "100%", padding: "9px", borderRadius: "5px", cursor: "pointer",
+                    fontFamily: "'DM Mono', monospace", fontSize: "11px", fontWeight: 500, letterSpacing: "0.05em",
+                    background: accent.bg, border: `1px solid ${accent.border}`, color: accent.text,
+                    transition: "all 0.18s",
                   }}
-                >
-                  📥 Download PPT
-                </button>
+                    onMouseEnter={e => {
+                      e.currentTarget.style.background = accent.primary;
+                      e.currentTarget.style.color = "#080808";
+                      e.currentTarget.style.fontWeight = "600";
+                    }}
+                    onMouseLeave={e => {
+                      e.currentTarget.style.background = accent.bg;
+                      e.currentTarget.style.color = accent.text;
+                      e.currentTarget.style.fontWeight = "500";
+                    }}
+                  >
+                    ↓ Download PPT
+                  </button>
+                </div>
               </div>
             );
           })}

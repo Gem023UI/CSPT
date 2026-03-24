@@ -6,105 +6,92 @@ export default function Footer() {
   const col2 = lessons.slice(8, 16);
 
   return (
-    <footer
-      style={{
-        background: "linear-gradient(135deg, #0d3b4e 0%, #0a2d3d 100%)",
-        borderTop: "3px solid rgba(252,184,25,0.3)",
-        position: "relative",
-        overflow: "hidden",
-      }}
-    >
-      {/* Decorative blobs */}
+    <footer style={{
+      background: "#080808",
+      borderTop: "1px solid rgba(255,255,255,0.07)",
+      position: "relative", overflow: "hidden",
+    }}>
+      {/* Ambient top glow */}
       <div style={{
-        position: "absolute", top: -80, right: -60,
-        width: 300, height: 300,
-        background: "radial-gradient(circle, rgba(252,184,25,0.12), transparent 70%)",
-        borderRadius: "50%", pointerEvents: "none",
-      }} />
-      <div style={{
-        position: "absolute", bottom: -60, left: -60,
-        width: 250, height: 250,
-        background: "radial-gradient(circle, rgba(212,56,40,0.1), transparent 70%)",
-        borderRadius: "50%", pointerEvents: "none",
+        position: "absolute", top: "-80px", left: "50%", transform: "translateX(-50%)",
+        width: "500px", height: "200px", pointerEvents: "none",
+        background: "radial-gradient(ellipse, rgba(139,60,247,0.08) 0%, transparent 70%)",
       }} />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-14 relative z-10">
-        <div className="grid md:grid-cols-3 gap-10">
-          {/* Brand */}
+      <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "64px 28px 32px", position: "relative", zIndex: 1 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr 1fr", gap: "48px", marginBottom: "48px" }}>
+
+          {/* Brand col */}
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <div
-                className="clay-btn px-3 py-1.5 text-xs font-bold tracking-widest uppercase"
-                style={{
-                  background: "linear-gradient(135deg, #FCB819, #F27800)",
-                  color: "white",
-                  border: "2px solid rgba(255,255,255,0.3)",
-                }}
-              >
-                BSIT-S3A
-              </div>
+            <div style={{ display: "flex", alignItems: "center", gap: "9px", marginBottom: "16px" }}>
+              <div style={{
+                width: "26px", height: "26px",
+                background: "linear-gradient(135deg, #8B3CF7, #F472B6)",
+                borderRadius: "5px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px",
+              }}>💻</div>
+              <span style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: "15px" }}>CSPT</span>
             </div>
-            <h3 className="font-black text-xl mb-3 text-white leading-tight">
-              Computer System &amp; Platform Technologies
+            <h3 style={{
+              fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: "16px",
+              color: "#FAFAFA", lineHeight: 1.25, marginBottom: "10px",
+            }}>
+              Computer System &amp;<br />Platform Technologies
             </h3>
-            <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
-              A curated learning resource for BSIT 3rd Year students covering 16 comprehensive
-              lessons on computing systems, platforms, and emerging technologies.
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "11px", color: "rgba(250,250,250,0.38)", lineHeight: 1.75, marginBottom: "20px" }}>
+              A curated learning resource for BSIT 3rd Year students — 16 comprehensive lessons on computing systems, platforms, and emerging technologies.
             </p>
 
-            {/* Color palette chips */}
-            <div className="flex gap-2 mt-5">
-              {["#0d3b4e", "#D43828", "#F27800", "#FCB819", "#F4E2B7"].map((c) => (
+            {/* Color swatches */}
+            <div style={{ display: "flex", gap: "6px" }}>
+              {["#080808", "#8B3CF7", "#F472B6", "#FEF3C7"].map((c) => (
                 <div key={c} style={{
-                  width: 24, height: 24, borderRadius: "50%",
-                  background: c,
-                  border: "2px solid rgba(255,255,255,0.2)",
-                  boxShadow: "2px 2px 0px rgba(0,0,0,0.2)",
+                  width: "18px", height: "18px", borderRadius: "50%", background: c,
+                  border: "1px solid rgba(255,255,255,0.15)",
                 }} />
               ))}
             </div>
           </div>
 
-          {/* Lesson Links Col 1 */}
+          {/* Lessons col 1 */}
           <div>
-            <h4 className="font-bold text-sm mb-4 uppercase tracking-wider" style={{ color: "#FCB819" }}>
+            <h4 style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.12em", textTransform: "uppercase", color: "#8B3CF7", marginBottom: "16px" }}>
               Lessons 01–08
             </h4>
-            <ul className="space-y-2">
+            <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "8px" }}>
               {col1.map((l) => (
                 <li key={l.id}>
-                  <a
-                    href={l.href}
-                    className="text-sm flex items-center gap-2 transition-all duration-200 hover:translate-x-1"
-                    style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'Poppins', sans-serif" }}
-                    onMouseEnter={(e) => e.currentTarget.style.color = "#FCB819"}
-                    onMouseLeave={(e) => e.currentTarget.style.color = "rgba(255,255,255,0.65)"}
+                  <a href={l.href} style={{
+                    display: "flex", alignItems: "center", gap: "8px",
+                    fontFamily: "'DM Mono', monospace", fontSize: "11px",
+                    color: "rgba(250,250,250,0.45)", transition: "all 0.15s",
+                  }}
+                    onMouseEnter={e => { e.currentTarget.style.color = "#c4a0ff"; e.currentTarget.style.paddingLeft = "4px"; }}
+                    onMouseLeave={e => { e.currentTarget.style.color = "rgba(250,250,250,0.45)"; e.currentTarget.style.paddingLeft = "0"; }}
                   >
-                    <span>{l.icon}</span>
-                    <span>{l.shortTitle}</span>
+                    <span>{l.icon}</span><span>{l.shortTitle}</span>
                   </a>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Lesson Links Col 2 */}
+          {/* Lessons col 2 */}
           <div>
-            <h4 className="font-bold text-sm mb-4 uppercase tracking-wider" style={{ color: "#FCB819" }}>
+            <h4 style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.12em", textTransform: "uppercase", color: "#F472B6", marginBottom: "16px" }}>
               Lessons 09–16
             </h4>
-            <ul className="space-y-2">
+            <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "8px" }}>
               {col2.map((l) => (
                 <li key={l.id}>
-                  <a
-                    href={l.href}
-                    className="text-sm flex items-center gap-2 transition-all duration-200 hover:translate-x-1"
-                    style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'Poppins', sans-serif" }}
-                    onMouseEnter={(e) => e.currentTarget.style.color = "#FCB819"}
-                    onMouseLeave={(e) => e.currentTarget.style.color = "rgba(255,255,255,0.65)"}
+                  <a href={l.href} style={{
+                    display: "flex", alignItems: "center", gap: "8px",
+                    fontFamily: "'DM Mono', monospace", fontSize: "11px",
+                    color: "rgba(250,250,250,0.45)", transition: "all 0.15s",
+                  }}
+                    onMouseEnter={e => { e.currentTarget.style.color = "#F472B6"; e.currentTarget.style.paddingLeft = "4px"; }}
+                    onMouseLeave={e => { e.currentTarget.style.color = "rgba(250,250,250,0.45)"; e.currentTarget.style.paddingLeft = "0"; }}
                   >
-                    <span>{l.icon}</span>
-                    <span>{l.shortTitle}</span>
+                    <span>{l.icon}</span><span>{l.shortTitle}</span>
                   </a>
                 </li>
               ))}
@@ -113,23 +100,23 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div
-          className="mt-12 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4"
-          style={{ borderTop: "1px solid rgba(255,255,255,0.1)" }}
-        >
-          <p className="text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>
+        <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: "24px", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "12px" }}>
+          <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", color: "rgba(250,250,250,0.25)", letterSpacing: "0.06em" }}>
             © 2025 BSIT-S3A · Computer System &amp; Platform Technologies · All rights reserved.
           </p>
-          <div className="flex items-center gap-4">
-            <a href="#home" className="text-xs font-semibold" style={{ color: "#FCB819" }}>
-              ↑ Back to Top
-            </a>
-            <a href="#ppt-compilation" className="text-xs" style={{ color: "rgba(255,255,255,0.5)" }}>
-              PPT Compilation
-            </a>
-            <a href="#proprietors" className="text-xs" style={{ color: "rgba(255,255,255,0.5)" }}>
-              Proprietors
-            </a>
+          <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
+            <a href="#home" style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", color: "#8B3CF7", letterSpacing: "0.06em", transition: "color 0.15s" }}
+              onMouseEnter={e => e.currentTarget.style.color = "#c4a0ff"}
+              onMouseLeave={e => e.currentTarget.style.color = "#8B3CF7"}
+            >↑ Back to Top</a>
+            <a href="#ppt-compilation" style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", color: "rgba(250,250,250,0.3)", transition: "color 0.15s" }}
+              onMouseEnter={e => e.currentTarget.style.color = "rgba(250,250,250,0.6)"}
+              onMouseLeave={e => e.currentTarget.style.color = "rgba(250,250,250,0.3)"}
+            >PPT Compilation</a>
+            <a href="#proprietors" style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", color: "rgba(250,250,250,0.3)", transition: "color 0.15s" }}
+              onMouseEnter={e => e.currentTarget.style.color = "rgba(250,250,250,0.6)"}
+              onMouseLeave={e => e.currentTarget.style.color = "rgba(250,250,250,0.3)"}
+            >Proprietors</a>
           </div>
         </div>
       </div>

@@ -1,6 +1,12 @@
 import React from "react";
 import { lessons } from "../data/lessons";
 
+const accentColors = [
+  { border: "rgba(139,60,247,0.4)", bg: "rgba(139,60,247,0.15)", text: "#c4a0ff" },
+  { border: "rgba(244,114,182,0.35)", bg: "rgba(244,114,182,0.12)", text: "#F472B6" },
+  { border: "rgba(254,243,199,0.28)", bg: "rgba(254,243,199,0.08)", text: "#FEF3C7" },
+];
+
 export default function Drawer({ isOpen, onClose }) {
   const handleLinkClick = (href) => {
     onClose();
@@ -12,174 +18,145 @@ export default function Drawer({ isOpen, onClose }) {
 
   return (
     <>
-      {/* DaisyUI Drawer overlay */}
-      <div className={`drawer ${isOpen ? "drawer-open" : ""}`} style={{ position: "fixed", inset: 0, zIndex: 9998, pointerEvents: isOpen ? "all" : "none" }}>
-        {/* Overlay */}
-        {isOpen && (
-          <div
-            className="drawer-overlay"
-            onClick={onClose}
-            style={{
-              position: "fixed",
-              inset: 0,
-              background: "rgba(13,59,78,0.45)",
-              backdropFilter: "blur(4px)",
-              zIndex: 9998,
-            }}
-          />
-        )}
-
-        {/* Drawer panel */}
-        <aside
+      {/* Overlay */}
+      {isOpen && (
+        <div
+          onClick={onClose}
           style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            bottom: 0,
-            width: "320px",
-            zIndex: 9999,
-            background: "rgba(253,248,240,0.97)",
-            backdropFilter: "blur(20px)",
-            borderRight: "3px solid rgba(13,59,78,0.15)",
-            boxShadow: "8px 0 40px rgba(13,59,78,0.2)",
-            transform: isOpen ? "translateX(0)" : "translateX(-100%)",
-            transition: "transform 0.35s cubic-bezier(0.4,0,0.2,1)",
-            display: "flex",
-            flexDirection: "column",
-            overflowY: "auto",
+            position: "fixed", inset: 0, zIndex: 9998,
+            background: "rgba(0,0,0,0.72)",
+            backdropFilter: "blur(6px)",
           }}
-        >
-          {/* Drawer Header */}
-          <div
-            style={{
-              padding: "20px 20px 16px",
-              borderBottom: "2px solid rgba(13,59,78,0.1)",
-              background: "linear-gradient(135deg, #0d3b4e 0%, #1a5a75 100%)",
-              position: "relative",
-              overflow: "hidden",
-            }}
-          >
-            {/* Decorative blob */}
-            <div style={{
-              position: "absolute", top: -30, right: -30,
-              width: 120, height: 120,
-              background: "radial-gradient(circle, rgba(252,184,25,0.3), transparent 70%)",
-              borderRadius: "50%",
-            }} />
+        />
+      )}
 
-            <div className="flex items-center justify-between relative z-10">
-              <div>
-                <div className="lesson-badge mb-2">BSIT-S3A</div>
-                <h2 className="font-bold text-white text-lg leading-tight">
-                  CSPT Lessons
-                </h2>
-                <p className="text-xs mt-0.5" style={{ color: "#FCB819" }}>
-                  Computer System &amp; Platform Technologies
-                </p>
-              </div>
-              <button
-                onClick={onClose}
-                className="clay-btn px-3 py-2 text-white font-bold text-lg"
-                style={{ background: "rgba(255,255,255,0.15)", border: "2px solid rgba(255,255,255,0.25)" }}
-                aria-label="Close drawer"
-              >
-                ✕
-              </button>
+      {/* Drawer panel */}
+      <aside style={{
+        position: "fixed", top: 0, left: 0, bottom: 0, width: "300px",
+        zIndex: 9999,
+        background: "#0d0d0d",
+        borderRight: "1px solid rgba(255,255,255,0.08)",
+        boxShadow: isOpen ? "12px 0 48px rgba(0,0,0,0.6)" : "none",
+        transform: isOpen ? "translateX(0)" : "translateX(-100%)",
+        transition: "transform 0.32s cubic-bezier(0.4,0,0.2,1)",
+        display: "flex", flexDirection: "column", overflowY: "auto",
+      }}>
+
+        {/* Header */}
+        <div style={{
+          padding: "20px", borderBottom: "1px solid rgba(255,255,255,0.07)",
+          background: "linear-gradient(160deg, rgba(139,60,247,0.12) 0%, transparent 60%)",
+          position: "relative",
+        }}>
+          {/* Glow dot */}
+          <div style={{
+            position: "absolute", top: "18px", right: "18px",
+            width: "6px", height: "6px", borderRadius: "50%", background: "#8B3CF7",
+            boxShadow: "0 0 10px rgba(139,60,247,0.8)",
+          }} />
+
+          <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between" }}>
+            <div>
+              <div style={{
+                display: "inline-flex", alignItems: "center", gap: "5px",
+                padding: "2px 9px", borderRadius: "999px",
+                border: "1px solid rgba(139,60,247,0.4)", background: "rgba(139,60,247,0.12)",
+                fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.1em",
+                textTransform: "uppercase", color: "#c4a0ff", marginBottom: "10px",
+              }}>BSIT-S3A</div>
+              <h2 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: "17px", color: "#FAFAFA", marginBottom: "3px" }}>
+                CSPT Lessons
+              </h2>
+              <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "11px", color: "rgba(250,250,250,0.4)", letterSpacing: "0.04em" }}>
+                Computer System & Platform Technologies
+              </p>
             </div>
+            <button
+              onClick={onClose}
+              style={{
+                background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)",
+                borderRadius: "6px", color: "rgba(250,250,250,0.6)", padding: "6px 9px",
+                cursor: "pointer", fontSize: "14px", transition: "all 0.15s", marginTop: "2px",
+              }}
+              onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.1)"; e.currentTarget.style.color = "#FAFAFA"; }}
+              onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.05)"; e.currentTarget.style.color = "rgba(250,250,250,0.6)"; }}
+              aria-label="Close drawer"
+            >✕</button>
           </div>
+        </div>
 
-          {/* Lesson Navigation */}
-          <nav className="flex-1 py-4 px-3">
-            <p className="text-xs font-semibold uppercase tracking-widest px-2 mb-3" style={{ color: "#F27800" }}>
-              Navigate Lessons
-            </p>
-            <ul className="space-y-1.5">
-              {lessons.map((lesson) => (
+        {/* Lesson nav */}
+        <nav style={{ flex: 1, padding: "14px 12px" }}>
+          <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(250,250,250,0.25)", padding: "4px 8px 10px" }}>
+            Navigate Lessons
+          </p>
+          <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "2px" }}>
+            {lessons.map((lesson) => {
+              const accent = accentColors[(lesson.id - 1) % 3];
+              return (
                 <li key={lesson.id}>
                   <button
                     onClick={() => handleLinkClick(lesson.href)}
-                    className="w-full text-left flex items-center gap-3 px-3 py-2.5 rounded-2xl transition-all duration-200 group"
                     style={{
-                      fontFamily: "'Poppins', sans-serif",
-                      border: "2px solid transparent",
+                      width: "100%", textAlign: "left", display: "flex", alignItems: "center", gap: "10px",
+                      padding: "8px 10px", borderRadius: "7px",
+                      background: "transparent", border: "1px solid transparent",
+                      cursor: "pointer", transition: "all 0.15s",
                     }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.background = "rgba(13,59,78,0.07)";
-                      e.currentTarget.style.border = "2px solid rgba(13,59,78,0.15)";
-                      e.currentTarget.style.boxShadow = "3px 3px 0px rgba(13,59,78,0.1)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.background = "transparent";
-                      e.currentTarget.style.border = "2px solid transparent";
-                      e.currentTarget.style.boxShadow = "none";
-                    }}
+                    onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.04)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)"; }}
+                    onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.borderColor = "transparent"; }}
                   >
-                    <span
-                      className="flex-shrink-0 w-9 h-9 flex items-center justify-center rounded-xl text-lg"
-                      style={{
-                        background: lesson.id % 3 === 0
-                          ? "linear-gradient(135deg, #F27800, #FCB819)"
-                          : lesson.id % 3 === 1
-                          ? "linear-gradient(135deg, #0d3b4e, #1a5a75)"
-                          : "linear-gradient(135deg, #D43828, #F27800)",
-                        border: "2px solid rgba(255,255,255,0.5)",
-                        boxShadow: "3px 3px 0px rgba(0,0,0,0.12)",
-                      }}
-                    >
-                      {lesson.icon}
-                    </span>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2">
-                        <span
-                          className="text-xs font-bold"
-                          style={{ color: "#FCB819" }}
-                        >
+                    {/* Icon */}
+                    <span style={{
+                      flexShrink: 0, width: "32px", height: "32px",
+                      borderRadius: "7px", display: "flex", alignItems: "center", justifyContent: "center",
+                      fontSize: "15px", background: accent.bg, border: `1px solid ${accent.border}`,
+                    }}>{lesson.icon}</span>
+
+                    {/* Text */}
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: "7px" }}>
+                        <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", color: accent.text, letterSpacing: "0.05em" }}>
                           {String(lesson.id).padStart(2, "0")}
                         </span>
-                        <span
-                          className="text-sm font-semibold truncate"
-                          style={{ color: "#0d3b4e" }}
-                        >
+                        <span style={{ fontFamily: "'Syne', sans-serif", fontWeight: 600, fontSize: "12px", color: "#FAFAFA", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
                           {lesson.shortTitle}
                         </span>
                       </div>
                     </div>
-                    <span style={{ color: "#D43828", fontSize: "14px" }}>→</span>
+                    <span style={{ color: "rgba(250,250,250,0.2)", fontSize: "12px" }}>›</span>
                   </button>
                 </li>
-              ))}
-            </ul>
-          </nav>
+              );
+            })}
+          </ul>
+        </nav>
 
-          {/* Drawer Footer */}
-          <div
-            className="px-4 py-4"
-            style={{ borderTop: "2px solid rgba(13,59,78,0.1)" }}
-          >
-            <div className="flex gap-2">
-              <a
-                href="#ppt-compilation"
-                onClick={() => { onClose(); }}
-                className="clay-btn flex-1 text-center text-xs font-semibold py-2"
-                style={{ background: "rgba(13,59,78,0.08)", color: "#0d3b4e", border: "2px solid rgba(13,59,78,0.2)" }}
-              >
-                PPT Compilation
-              </a>
-              <a
-                href="#proprietors"
-                onClick={() => { onClose(); }}
-                className="clay-btn flex-1 text-center text-xs font-semibold py-2 text-white"
-                style={{ background: "linear-gradient(135deg, #D43828, #F27800)", border: "2px solid rgba(255,255,255,0.3)" }}
-              >
-                Proprietors
-              </a>
-            </div>
-            <p className="text-center text-xs mt-3" style={{ color: "rgba(13,59,78,0.4)" }}>
-              © 2025 BSIT-S3A · All rights reserved
-            </p>
+        {/* Footer */}
+        <div style={{ padding: "14px", borderTop: "1px solid rgba(255,255,255,0.07)" }}>
+          <div style={{ display: "flex", gap: "8px", marginBottom: "10px" }}>
+            <a href="#ppt-compilation" onClick={onClose} style={{
+              flex: 1, textAlign: "center", padding: "9px", borderRadius: "6px",
+              fontFamily: "'DM Mono', monospace", fontSize: "11px", letterSpacing: "0.05em",
+              border: "1px solid rgba(255,255,255,0.09)", color: "rgba(250,250,250,0.6)", transition: "all 0.15s",
+            }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.18)"; e.currentTarget.style.color = "#FAFAFA"; }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.09)"; e.currentTarget.style.color = "rgba(250,250,250,0.6)"; }}
+            >PPT Slides</a>
+            <a href="#proprietors" onClick={onClose} style={{
+              flex: 1, textAlign: "center", padding: "9px", borderRadius: "6px",
+              fontFamily: "'DM Mono', monospace", fontSize: "11px", fontWeight: 600, letterSpacing: "0.05em",
+              background: "#F472B6", color: "#080808", transition: "all 0.15s",
+            }}
+              onMouseEnter={e => { e.currentTarget.style.background = "#f990c8"; }}
+              onMouseLeave={e => { e.currentTarget.style.background = "#F472B6"; }}
+            >Proprietors</a>
           </div>
-        </aside>
-      </div>
+          <p style={{ textAlign: "center", fontFamily: "'DM Mono', monospace", fontSize: "10px", color: "rgba(250,250,250,0.2)", letterSpacing: "0.06em" }}>
+            © 2025 BSIT-S3A · All rights reserved
+          </p>
+        </div>
+      </aside>
     </>
   );
 }
