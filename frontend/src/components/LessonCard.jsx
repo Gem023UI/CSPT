@@ -1,7 +1,7 @@
 import React from "react";
 
 const accents = {
-  "#0d3b4e": { primary: "#8B3CF7", secondary: "#c4a0ff", bg: "rgba(139,60,247,0.1)",  border: "rgba(139,60,247,0.3)",  glow: "rgba(139,60,247,0.2)"  },
+  "#0d3b4e": { primary: "#9D56FF", secondary: "#c4a0ff", bg: "rgba(157,86,255,0.2)",  border: "rgba(157,86,255,0.45)",  glow: "rgba(157,86,255,0.3)"  },
   "#D43828": { primary: "#F472B6", secondary: "#f9a8d4", bg: "rgba(244,114,182,0.08)", border: "rgba(244,114,182,0.28)", glow: "rgba(244,114,182,0.18)" },
   "#F27800": { primary: "#FEF3C7", secondary: "#fde68a", bg: "rgba(254,243,199,0.07)", border: "rgba(254,243,199,0.22)", glow: "rgba(254,243,199,0.12)" },
 };
@@ -14,9 +14,9 @@ export default function LessonCard({ lesson, isReversed, onNavigate }) {
       id={`lesson-${lesson.id}`}
       style={{
         padding: "72px 0",
-        borderBottom: "1px solid rgba(255,255,255,0.06)",
+        borderBottom: "1px solid rgba(255,255,255,0.12)",
         position: "relative", overflow: "hidden",
-        background: isReversed ? "rgba(255,255,255,0.012)" : "transparent",
+        background: isReversed ? "rgba(255,255,255,0.03)" : "transparent",
       }}
     >
       {/* Ambient glow */}
@@ -38,7 +38,7 @@ export default function LessonCard({ lesson, isReversed, onNavigate }) {
           {/* Visual panel */}
           <div style={{ direction: "ltr" }}>
             <div style={{
-              background: "#101010", border: `1px solid ${pal.border}`,
+              background: "#1a1a22", border: `1px solid ${pal.border}`,
               borderRadius: "12px", overflow: "hidden", position: "relative",
               aspectRatio: "16/10",
               boxShadow: `0 0 40px ${pal.glow}`,
@@ -51,7 +51,7 @@ export default function LessonCard({ lesson, isReversed, onNavigate }) {
                 position: "absolute", bottom: "-16px", right: "8px",
                 fontFamily: "'Syne', sans-serif", fontWeight: 800,
                 fontSize: "7rem", lineHeight: 1,
-                color: "rgba(255,255,255,0.04)", userSelect: "none",
+                color: "rgba(255,255,255,0.1)", userSelect: "none",
                 letterSpacing: "-0.04em",
               }}>{String(lesson.id).padStart(2, "0")}</span>
 
@@ -108,13 +108,13 @@ export default function LessonCard({ lesson, isReversed, onNavigate }) {
 
             <h2 style={{
               fontFamily: "'Syne', sans-serif", fontWeight: 800,
-              fontSize: "clamp(1.5rem, 2.5vw, 2rem)", color: "#FAFAFA",
+              fontSize: "clamp(1.5rem, 2.5vw, 2rem)", color: "#F0F0F8",
               letterSpacing: "-0.025em", lineHeight: 1.08, marginBottom: "14px",
             }}>{lesson.title}</h2>
 
             <p style={{
               fontFamily: "'DM Mono', monospace", fontSize: "13px",
-              color: "rgba(250,250,250,0.5)", lineHeight: 1.75, marginBottom: "22px",
+              color: "rgba(240,240,248,0.78)", lineHeight: 1.75, marginBottom: "22px",
             }}>{lesson.description}</p>
 
             {/* Topics */}
@@ -136,7 +136,7 @@ export default function LessonCard({ lesson, isReversed, onNavigate }) {
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.background = pal.primary;
-                e.currentTarget.style.color = "#080808";
+                e.currentTarget.style.color = "#0f0f12";
                 e.currentTarget.style.borderColor = pal.primary;
                 e.currentTarget.style.fontWeight = "600";
               }}

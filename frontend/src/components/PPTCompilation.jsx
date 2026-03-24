@@ -2,14 +2,14 @@ import React from "react";
 import { lessons } from "../data/lessons";
 
 const accents = [
-  { primary: "#8B3CF7", bg: "rgba(139,60,247,0.12)", border: "rgba(139,60,247,0.3)", text: "#c4a0ff" },
+  { primary: "#9D56FF", bg: "rgba(157,86,255,0.22)", border: "rgba(157,86,255,0.45)", text: "#c4a0ff" },
   { primary: "#F472B6", bg: "rgba(244,114,182,0.1)",  border: "rgba(244,114,182,0.28)", text: "#F472B6" },
   { primary: "#FEF3C7", bg: "rgba(254,243,199,0.07)", border: "rgba(254,243,199,0.22)", text: "#FEF3C7" },
 ];
 
 export default function PPTCompilation() {
   return (
-    <section id="ppt-compilation" style={{ padding: "88px 0", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+    <section id="ppt-compilation" style={{ padding: "88px 0", borderBottom: "1px solid rgba(255,255,255,0.13)" }}>
       <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 28px" }}>
 
         {/* Header */}
@@ -18,14 +18,14 @@ export default function PPTCompilation() {
           <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: "16px" }}>
             <h2 style={{
               fontFamily: "'Syne', sans-serif", fontWeight: 800,
-              fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)", color: "#FAFAFA", letterSpacing: "-0.025em",
+              fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)", color: "#F0F0F8", letterSpacing: "-0.025em",
             }}>
               PPT{" "}
-              <span style={{ background: "linear-gradient(135deg, #8B3CF7, #F472B6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+              <span style={{ background: "linear-gradient(135deg, #9D56FF, #F472B6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
                 Compilation
               </span>
             </h2>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "12px", color: "rgba(250,250,250,0.4)", maxWidth: "400px", lineHeight: 1.7 }}>
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "12px", color: "rgba(240,240,248,0.75)", maxWidth: "400px", lineHeight: 1.7 }}>
               Download or view presentation slides for each CSPT lesson.
             </p>
           </div>
@@ -50,7 +50,7 @@ export default function PPTCompilation() {
                   <span style={{
                     position: "absolute", right: "-4px", bottom: "-8px",
                     fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: "2.6rem",
-                    color: "rgba(255,255,255,0.06)", lineHeight: 1, letterSpacing: "-0.04em",
+                    color: "rgba(255,255,255,0.12)", lineHeight: 1, letterSpacing: "-0.04em",
                     userSelect: "none",
                   }}>{String(lesson.id).padStart(2, "0")}</span>
                 </div>
@@ -62,7 +62,7 @@ export default function PPTCompilation() {
                   </span>
                   <h3 style={{
                     fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: "13px",
-                    color: "#FAFAFA", margin: "4px 0 14px", lineHeight: 1.25,
+                    color: "#F0F0F8", margin: "4px 0 14px", lineHeight: 1.25,
                   }}>{lesson.shortTitle}</h3>
 
                   <button style={{
@@ -73,7 +73,7 @@ export default function PPTCompilation() {
                   }}
                     onMouseEnter={e => {
                       e.currentTarget.style.background = accent.primary;
-                      e.currentTarget.style.color = "#080808";
+                      e.currentTarget.style.color = "#0f0f12";
                       e.currentTarget.style.fontWeight = "600";
                     }}
                     onMouseLeave={e => {

@@ -7,15 +7,15 @@ export default function Footer() {
 
   return (
     <footer style={{
-      background: "#080808",
-      borderTop: "1px solid rgba(255,255,255,0.07)",
+      background: "#0f0f12",
+      borderTop: "1px solid rgba(255,255,255,0.13)",
       position: "relative", overflow: "hidden",
     }}>
       {/* Ambient top glow */}
       <div style={{
         position: "absolute", top: "-80px", left: "50%", transform: "translateX(-50%)",
         width: "500px", height: "200px", pointerEvents: "none",
-        background: "radial-gradient(ellipse, rgba(139,60,247,0.08) 0%, transparent 70%)",
+        background: "radial-gradient(ellipse, rgba(157,86,255,0.18) 0%, transparent 70%)",
       }} />
 
       <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "64px 28px 32px", position: "relative", zIndex: 1 }}>
@@ -26,24 +26,24 @@ export default function Footer() {
             <div style={{ display: "flex", alignItems: "center", gap: "9px", marginBottom: "16px" }}>
               <div style={{
                 width: "26px", height: "26px",
-                background: "linear-gradient(135deg, #8B3CF7, #F472B6)",
+                background: "linear-gradient(135deg, #9D56FF, #F472B6)",
                 borderRadius: "5px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px",
               }}>💻</div>
               <span style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: "15px" }}>CSPT</span>
             </div>
             <h3 style={{
               fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: "16px",
-              color: "#FAFAFA", lineHeight: 1.25, marginBottom: "10px",
+              color: "#F0F0F8", lineHeight: 1.25, marginBottom: "10px",
             }}>
               Computer System &amp;<br />Platform Technologies
             </h3>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "11px", color: "rgba(250,250,250,0.38)", lineHeight: 1.75, marginBottom: "20px" }}>
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "11px", color: "rgba(240,240,248,0.6)", lineHeight: 1.75, marginBottom: "20px" }}>
               A curated learning resource for BSIT 3rd Year students — 16 comprehensive lessons on computing systems, platforms, and emerging technologies.
             </p>
 
             {/* Color swatches */}
             <div style={{ display: "flex", gap: "6px" }}>
-              {["#080808", "#8B3CF7", "#F472B6", "#FEF3C7"].map((c) => (
+              {["#0f0f12", "#9D56FF", "#F472B6", "#FEF3C7"].map((c) => (
                 <div key={c} style={{
                   width: "18px", height: "18px", borderRadius: "50%", background: c,
                   border: "1px solid rgba(255,255,255,0.15)",
@@ -54,7 +54,7 @@ export default function Footer() {
 
           {/* Lessons col 1 */}
           <div>
-            <h4 style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.12em", textTransform: "uppercase", color: "#8B3CF7", marginBottom: "16px" }}>
+            <h4 style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.12em", textTransform: "uppercase", color: "#9D56FF", marginBottom: "16px" }}>
               Lessons 01–08
             </h4>
             <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "8px" }}>
@@ -63,10 +63,10 @@ export default function Footer() {
                   <a href={l.href} style={{
                     display: "flex", alignItems: "center", gap: "8px",
                     fontFamily: "'DM Mono', monospace", fontSize: "11px",
-                    color: "rgba(250,250,250,0.45)", transition: "all 0.15s",
+                    color: "rgba(240,240,248,0.72)", transition: "all 0.15s",
                   }}
                     onMouseEnter={e => { e.currentTarget.style.color = "#c4a0ff"; e.currentTarget.style.paddingLeft = "4px"; }}
-                    onMouseLeave={e => { e.currentTarget.style.color = "rgba(250,250,250,0.45)"; e.currentTarget.style.paddingLeft = "0"; }}
+                    onMouseLeave={e => { e.currentTarget.style.color = "rgba(240,240,248,0.72)"; e.currentTarget.style.paddingLeft = "0"; }}
                   >
                     <span>{l.icon}</span><span>{l.shortTitle}</span>
                   </a>
@@ -86,10 +86,10 @@ export default function Footer() {
                   <a href={l.href} style={{
                     display: "flex", alignItems: "center", gap: "8px",
                     fontFamily: "'DM Mono', monospace", fontSize: "11px",
-                    color: "rgba(250,250,250,0.45)", transition: "all 0.15s",
+                    color: "rgba(240,240,248,0.72)", transition: "all 0.15s",
                   }}
                     onMouseEnter={e => { e.currentTarget.style.color = "#F472B6"; e.currentTarget.style.paddingLeft = "4px"; }}
-                    onMouseLeave={e => { e.currentTarget.style.color = "rgba(250,250,250,0.45)"; e.currentTarget.style.paddingLeft = "0"; }}
+                    onMouseLeave={e => { e.currentTarget.style.color = "rgba(240,240,248,0.72)"; e.currentTarget.style.paddingLeft = "0"; }}
                   >
                     <span>{l.icon}</span><span>{l.shortTitle}</span>
                   </a>
@@ -100,22 +100,22 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: "24px", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "12px" }}>
-          <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", color: "rgba(250,250,250,0.25)", letterSpacing: "0.06em" }}>
+        <div style={{ borderTop: "1px solid rgba(255,255,255,0.12)", paddingTop: "24px", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "12px" }}>
+          <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", color: "rgba(240,240,248,0.5)", letterSpacing: "0.06em" }}>
             © 2025 BSIT-S3A · Computer System &amp; Platform Technologies · All rights reserved.
           </p>
           <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
-            <a href="#home" style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", color: "#8B3CF7", letterSpacing: "0.06em", transition: "color 0.15s" }}
+            <a href="#home" style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", color: "#9D56FF", letterSpacing: "0.06em", transition: "color 0.15s" }}
               onMouseEnter={e => e.currentTarget.style.color = "#c4a0ff"}
-              onMouseLeave={e => e.currentTarget.style.color = "#8B3CF7"}
+              onMouseLeave={e => e.currentTarget.style.color = "#9D56FF"}
             >↑ Back to Top</a>
-            <a href="#ppt-compilation" style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", color: "rgba(250,250,250,0.3)", transition: "color 0.15s" }}
-              onMouseEnter={e => e.currentTarget.style.color = "rgba(250,250,250,0.6)"}
-              onMouseLeave={e => e.currentTarget.style.color = "rgba(250,250,250,0.3)"}
+            <a href="#ppt-compilation" style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", color: "rgba(240,240,248,0.6)", transition: "color 0.15s" }}
+              onMouseEnter={e => e.currentTarget.style.color = "rgba(240,240,248,0.75)"}
+              onMouseLeave={e => e.currentTarget.style.color = "rgba(240,240,248,0.6)"}
             >PPT Compilation</a>
-            <a href="#proprietors" style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", color: "rgba(250,250,250,0.3)", transition: "color 0.15s" }}
-              onMouseEnter={e => e.currentTarget.style.color = "rgba(250,250,250,0.6)"}
-              onMouseLeave={e => e.currentTarget.style.color = "rgba(250,250,250,0.3)"}
+            <a href="#proprietors" style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", color: "rgba(240,240,248,0.6)", transition: "color 0.15s" }}
+              onMouseEnter={e => e.currentTarget.style.color = "rgba(240,240,248,0.75)"}
+              onMouseLeave={e => e.currentTarget.style.color = "rgba(240,240,248,0.6)"}
             >Proprietors</a>
           </div>
         </div>

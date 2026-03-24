@@ -1,15 +1,15 @@
 import React from "react";
 
 const proprietors = [
-  { name: "Proprietor 1", role: "Subject Matter Expert", icon: "👨‍💻", accent: { primary: "#8B3CF7", bg: "rgba(139,60,247,0.12)", border: "rgba(139,60,247,0.3)", text: "#c4a0ff" } },
+  { name: "Proprietor 1", role: "Subject Matter Expert", icon: "👨‍💻", accent: { primary: "#9D56FF", bg: "rgba(157,86,255,0.22)", border: "rgba(157,86,255,0.45)", text: "#c4a0ff" } },
   { name: "Proprietor 2", role: "Content Developer",    icon: "👩‍💻", accent: { primary: "#F472B6", bg: "rgba(244,114,182,0.1)",  border: "rgba(244,114,182,0.28)", text: "#F472B6" } },
   { name: "Proprietor 3", role: "Platform Designer",    icon: "🧑‍🎨", accent: { primary: "#FEF3C7", bg: "rgba(254,243,199,0.07)", border: "rgba(254,243,199,0.22)", text: "#FEF3C7" } },
-  { name: "Proprietor 4", role: "Systems Architect",    icon: "👩‍🔬", accent: { primary: "#8B3CF7", bg: "rgba(139,60,247,0.12)", border: "rgba(139,60,247,0.3)", text: "#c4a0ff" } },
+  { name: "Proprietor 4", role: "Systems Architect",    icon: "👩‍🔬", accent: { primary: "#9D56FF", bg: "rgba(157,86,255,0.22)", border: "rgba(157,86,255,0.45)", text: "#c4a0ff" } },
 ];
 
 export default function Proprietors() {
   return (
-    <section id="proprietors" style={{ padding: "88px 0", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+    <section id="proprietors" style={{ padding: "88px 0", borderBottom: "1px solid rgba(255,255,255,0.13)" }}>
       <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 28px" }}>
 
         {/* Header */}
@@ -17,14 +17,14 @@ export default function Proprietors() {
           <span className="section-label" style={{ display: "block", marginBottom: "12px" }}>The Team</span>
           <h2 style={{
             fontFamily: "'Syne', sans-serif", fontWeight: 800,
-            fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", color: "#FAFAFA", letterSpacing: "-0.025em", marginBottom: "12px",
+            fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", color: "#F0F0F8", letterSpacing: "-0.025em", marginBottom: "12px",
           }}>
             Meet the{" "}
-            <span style={{ background: "linear-gradient(135deg, #8B3CF7, #F472B6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+            <span style={{ background: "linear-gradient(135deg, #9D56FF, #F472B6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
               Proprietors
             </span>
           </h2>
-          <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "12px", color: "rgba(250,250,250,0.4)", maxWidth: "400px", margin: "0 auto", lineHeight: 1.75 }}>
+          <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "12px", color: "rgba(240,240,248,0.75)", maxWidth: "400px", margin: "0 auto", lineHeight: 1.75 }}>
             The BSIT-S3A students behind this comprehensive CSPT learning resource.
           </p>
         </div>
@@ -44,12 +44,12 @@ export default function Proprietors() {
               }}>{p.icon}</div>
 
               {/* Name */}
-              <p style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: "15px", color: "#FAFAFA", marginBottom: "4px" }}>
+              <p style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: "15px", color: "#F0F0F8", marginBottom: "4px" }}>
                 {p.name}
               </p>
 
               {/* Role */}
-              <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "11px", color: "rgba(250,250,250,0.4)", letterSpacing: "0.04em", marginBottom: "16px" }}>
+              <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "11px", color: "rgba(240,240,248,0.75)", letterSpacing: "0.04em", marginBottom: "16px" }}>
                 {p.role}
               </p>
 
