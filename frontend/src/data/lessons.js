@@ -1,3 +1,18 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// LESSON NAVIGATION CONFIGURATION
+//
+// For each lesson you can set:
+//   externalUrl  — if set, clicking the lesson in the Drawer opens this URL
+//                  in a new browser tab (e.g. a Wix page, Google Site, etc.)
+//                  Leave as "" to use the internal lesson page instead.
+//
+//   lessonPagePath — internal React Router path for lessons that have a
+//                    dedicated page built in this project.
+//                    Leave as "" for lessons without an internal page yet.
+// ─────────────────────────────────────────────────────────────────────────────
+
+// 4 wala pa
+
 export const lessons = [
   {
     id: 1,
@@ -11,6 +26,8 @@ export const lessons = [
     image: "https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg",
     topics: ["CPU Architecture", "Memory (RAM)", "Storage Devices", "Motherboards", "I/O Interfaces"],
     href: "#lesson-1",
+    externalUrl: "https://cyne-16.github.io/comp/",          // ← paste Wix/web link here to open in new tab
+    lessonPagePath: "/lesson/1",
   },
   {
     id: 2,
@@ -24,6 +41,8 @@ export const lessons = [
     image: "https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg",
     topics: ["Binary", "Hexadecimal", "Octal", "Conversions", "Arithmetic Operations"],
     href: "#lesson-2",
+    externalUrl: "https://fsco101.github.io/G2-Number-System/",
+    lessonPagePath: "/lesson/2",
   },
   {
     id: 3,
@@ -37,6 +56,8 @@ export const lessons = [
     image: "https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg",
     topics: ["ASCII & Unicode", "JSON & XML", "Binary Formats", "Compression", "Encoding Standards"],
     href: "#lesson-3",
+    externalUrl: "https://ronaldajusan0.github.io/Computer-Systems-and-Platform-Technologies/",
+    lessonPagePath: "/lesson/3",
   },
   {
     id: 4,
@@ -50,6 +71,8 @@ export const lessons = [
     image: "https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg",
     topics: ["Process Management", "File Systems", "Memory Management", "Linux & Windows", "OS Security"],
     href: "#lesson-4",
+    externalUrl: "",          // ← paste Wix/web link here
+    lessonPagePath: "",
   },
   {
     id: 5,
@@ -63,6 +86,8 @@ export const lessons = [
     image: "https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg",
     topics: ["Cloud Computing", "Edge Computing", "Virtualization", "Containers", "HPC"],
     href: "#lesson-5",
+    externalUrl: "https://delrosariomarkkent.wixsite.com/computer-systems-and",
+    lessonPagePath: "/lesson/5",
   },
   {
     id: 6,
@@ -76,6 +101,8 @@ export const lessons = [
     image: "https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg",
     topics: ["SQL Databases", "NoSQL", "Data Modeling", "Query Optimization", "Database Security"],
     href: "#lesson-6",
+    externalUrl: "https://jeromerosario4.github.io/Database-Platforms---Rosario-Tolin_CSPT/home",
+    lessonPagePath: "",
   },
   {
     id: 7,
@@ -89,6 +116,8 @@ export const lessons = [
     image: "https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg",
     topics: ["HDD & SSD", "RAID Systems", "Object Storage", "Cloud Storage", "NAS & SAN"],
     href: "#lesson-7",
+    externalUrl: "https://storageplatforms.vercel.app/",
+    lessonPagePath: "/lesson/7",
   },
   {
     id: 8,
@@ -102,6 +131,8 @@ export const lessons = [
     image: "https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg",
     topics: ["PaaS", "Serverless", "Microservices", "Docker & Kubernetes", "CI/CD Pipelines"],
     href: "#lesson-8",
+    externalUrl: "https://applicationplatforms-cspt.netlify.app/",
+    lessonPagePath: "/lesson/8",
   },
   {
     id: 9,
@@ -115,6 +146,8 @@ export const lessons = [
     image: "https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg",
     topics: ["HTTP/HTTPS", "Web Servers", "REST & GraphQL", "CDNs", "Web Frameworks"],
     href: "#lesson-9",
+    externalUrl: "https://wbpltfrm.netlify.app/",
+    lessonPagePath: "",
   },
   {
     id: 10,
@@ -128,6 +161,8 @@ export const lessons = [
     image: "https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg",
     topics: ["WordPress", "Headless CMS", "Drupal", "Strapi", "Content Modeling"],
     href: "#lesson-10",
+    externalUrl: "https://coolasiandude.github.io/ofraciohernandezcms.github.io/",
+    lessonPagePath: "",
   },
   {
     id: 11,
@@ -141,6 +176,8 @@ export const lessons = [
     image: "https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg",
     topics: ["Video Streaming", "Audio Platforms", "Transcoding", "CDN for Media", "DAM Systems"],
     href: "#lesson-11",
+    externalUrl: "https://aiagarciaa2205.wixsite.com/mediaplatforms",
+    lessonPagePath: "",
   },
   {
     id: 12,
@@ -154,6 +191,8 @@ export const lessons = [
     image: "https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg",
     topics: ["Business Intelligence", "Data Visualization", "Big Data", "ETL Pipelines", "Reporting Tools"],
     href: "#lesson-12",
+    externalUrl: "https://mosyhub.github.io/Analytics/AAT.html",
+    lessonPagePath: "",
   },
   {
     id: 13,
@@ -167,6 +206,8 @@ export const lessons = [
     image: "https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg",
     topics: ["Machine Learning", "Deep Learning", "NLP", "Computer Vision", "AI Cloud Services"],
     href: "#lesson-13",
+    externalUrl: "https://arti-intelligence.vercel.app/index.html",
+    lessonPagePath: "",
   },
   {
     id: 14,
@@ -180,6 +221,8 @@ export const lessons = [
     image: "https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg",
     topics: ["Cryptography", "Network Security", "IAM", "SIEM Platforms", "Zero Trust"],
     href: "#lesson-14",
+    externalUrl: "https://jextalaba.wixsite.com/group14-security?fbclid=IwZXh0bgNhZW0CMTAAYnJpZBExbkJBc2NnaFd5bUpSMkZvY3NydGMGYXBwX2lkEDIyMjAzOTE3ODgyMDA4OTIAAR6HxCmZMx7Am1NbvewBKi4HdXazk4lKanJGxACUmXNTEs0sSBv1rgjj6qqe-g_aem_7H3KKhZGOUtcby49NY1yDA",
+    lessonPagePath: "",
   },
   {
     id: 15,
@@ -193,6 +236,8 @@ export const lessons = [
     image: "https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg",
     topics: ["IoT Architecture", "MQTT Protocol", "Edge Processing", "Smart Devices", "IoT Security"],
     href: "#lesson-15",
+    externalUrl: "https://aeronjhoncanta.github.io/iot/",
+    lessonPagePath: "",
   },
   {
     id: 16,
@@ -206,5 +251,7 @@ export const lessons = [
     image: "https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg",
     topics: ["iOS & Android", "React Native", "Unity & Unreal", "App Stores", "Game Monetization"],
     href: "#lesson-16",
+    externalUrl: "https://mobile-apps-and-games-platforms.vercel.app/",
+    lessonPagePath: "",
   },
 ];
