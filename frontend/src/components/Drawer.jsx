@@ -80,7 +80,7 @@ export default function Drawer({ isOpen, onClose }) {
         {/* Lesson nav */}
         <nav style={{ flex: 1, padding: "14px 12px" }}>
           <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(240,240,248,0.4)", padding: "4px 8px 10px" }}>
-            Navigate Lessons
+            Navigate to the websites created by the class per assigned topic.
           </p>
           <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "2px" }}>
             {lessons.map((lesson) => {
