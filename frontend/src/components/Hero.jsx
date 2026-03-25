@@ -5,7 +5,7 @@ export default function Hero({ onOpenDrawer }) {
     { value: "16", label: "Lessons" },
     { value: "3rd", label: "Year Level" },
     { value: "S3A", label: "Section" },
-    { value: "2024", label: "Academic Year" },
+    { value: "2025", label: "Academic Year" },
   ];
 
   const chips = [
@@ -63,7 +63,7 @@ export default function Hero({ onOpenDrawer }) {
 
         {/* Badge */}
         <div className="fade-up" style={{ marginBottom: "28px", display: "flex", justifyContent: "center" }}>
-          <span className="tag tag-purple">BSIT-S3A · AY 2024–2025</span>
+          <span className="tag tag-purple">BSIT-S3A · AY 2025–2026</span>
         </div>
 
         {/* Headline */}

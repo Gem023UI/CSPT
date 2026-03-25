@@ -10,7 +10,7 @@ export default function Header({ onOpenDrawer }) {
   }, []);
 
   const navLinks = [
-    { label: "Home", href: "#home" },
+    { label: "Home", href: "/" },
     { label: "Lessons", href: "#lessons" },
     { label: "Resources", href: "#ppt-compilation" },
     { label: "Team", href: "#proprietors" },
@@ -83,7 +83,7 @@ export default function Header({ onOpenDrawer }) {
             onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.32)"; e.currentTarget.style.color = "#F0F0F8"; e.currentTarget.style.background = "rgba(255,255,255,0.07)"; }}
             onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.18)"; e.currentTarget.style.color = "rgba(240,240,248,0.7)"; e.currentTarget.style.background = "transparent"; }}
           >PPT Slides</a>
-          <a href="#proprietors" style={{
+          <a href="/proprietors" style={{
             fontFamily: "'DM Mono', monospace", fontSize: "11px", letterSpacing: "0.05em",
             color: "#0f0f12", padding: "7px 14px", borderRadius: "5px",
             background: "#F472B6", fontWeight: 600, transition: "all 0.18s",

@@ -1,5 +1,5 @@
 import React from "react";
-import LessonPage from "./LessonPage";
+import LessonPage from "../LessonPage";
 
 const YOUTUBE_URL = "https://www.youtube.com/embed/pKbmwc1TcsA";
 const GOOGLE_SLIDES_URL = "https://docs.google.com/presentation/d/e/2PACX-1vRmQLehjQ6-Rr9AtnkPJSyUibNXXTb5BEifquHRK8N43INTvAm6kcd1WLp270Cq7Q/pubembed?start=false&loop=false&delayms=3000";

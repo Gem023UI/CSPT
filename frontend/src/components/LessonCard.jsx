@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const accents = {
   "#0d3b4e": { primary: "#9D56FF", secondary: "#c4a0ff", bg: "rgba(157,86,255,0.2)",  border: "rgba(157,86,255,0.45)",  glow: "rgba(157,86,255,0.3)"  },
@@ -6,8 +7,15 @@ const accents = {
   "#F27800": { primary: "#FEF3C7", secondary: "#fde68a", bg: "rgba(254,243,199,0.07)", border: "rgba(254,243,199,0.22)", glow: "rgba(254,243,199,0.12)" },
 };
 
-export default function LessonCard({ lesson, isReversed, onNavigate }) {
+export default function LessonCard({ lesson, isReversed }) {
   const pal = accents[lesson.color] || accents["#0d3b4e"];
+  const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    if (lesson.lessonPagePath) {
+      navigate(lesson.lessonPagePath);
+    }
+  };
 
   return (
     <section
@@ -43,36 +51,75 @@ export default function LessonCard({ lesson, isReversed, onNavigate }) {
               aspectRatio: "16/10",
               boxShadow: `0 0 40px ${pal.glow}`,
             }}>
-              {/* Grid lines */}
-              <div className="grid-lines" />
-
-              {/* Big watermark number */}
-              <span style={{
-                position: "absolute", bottom: "-16px", right: "8px",
-                fontFamily: "'Syne', sans-serif", fontWeight: 800,
-                fontSize: "7rem", lineHeight: 1,
-                color: "rgba(255,255,255,0.1)", userSelect: "none",
-                letterSpacing: "-0.04em",
-              }}>{String(lesson.id).padStart(2, "0")}</span>
-
-              {/* Center content */}
-              <div style={{
-                position: "relative", zIndex: 1, height: "100%",
-                display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
-                padding: "24px", textAlign: "center",
-              }}>
-                <div style={{ fontSize: "3.8rem", marginBottom: "14px", filter: "drop-shadow(0 4px 16px rgba(0,0,0,0.5))" }}>
-                  {lesson.icon}
-                </div>
-                <div style={{
-                  display: "inline-block", padding: "5px 14px", borderRadius: "999px",
-                  background: pal.bg, border: `1px solid ${pal.border}`,
-                }}>
-                  <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "11px", color: pal.secondary, letterSpacing: "0.06em" }}>
-                    Lesson {String(lesson.id).padStart(2, "0")}
-                  </span>
-                </div>
-              </div>
+              {/* If lesson has an image, show it; otherwise show the grid/icon fallback */}
+              {lesson.image ? (
+                <>
+                  <img
+                    src={lesson.image}
+                    alt={lesson.title}
+                    style={{
+                      width: "100%", height: "100%",
+                      objectFit: "cover",
+                      display: "block",
+                      opacity: 0.85,
+                    }}
+                  />
+                  {/* Overlay gradient for readability */}
+                  <div style={{
+                    position: "absolute", inset: 0,
+                    background: `linear-gradient(135deg, rgba(15,15,18,0.45) 0%, transparent 60%)`,
+                    pointerEvents: "none",
+                  }} />
+                  {/* Lesson badge over image */}
+                  <div style={{
+                    position: "absolute", bottom: "16px", left: "50%", transform: "translateX(-50%)",
+                    display: "inline-block", padding: "5px 14px", borderRadius: "999px",
+                    background: pal.bg, border: `1px solid ${pal.border}`,
+                    backdropFilter: "blur(8px)",
+                  }}>
+                    <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "11px", color: pal.secondary, letterSpacing: "0.06em" }}>
+                      Lesson {String(lesson.id).padStart(2, "0")}
+                    </span>
+                  </div>
+                  {/* Big watermark number */}
+                  <span style={{
+                    position: "absolute", bottom: "-16px", right: "8px",
+                    fontFamily: "'Syne', sans-serif", fontWeight: 800,
+                    fontSize: "7rem", lineHeight: 1,
+                    color: "rgba(255,255,255,0.1)", userSelect: "none",
+                    letterSpacing: "-0.04em", pointerEvents: "none",
+                  }}>{String(lesson.id).padStart(2, "0")}</span>
+                </>
+              ) : (
+                <>
+                  {/* Grid lines fallback */}
+                  <div className="grid-lines" />
+                  <span style={{
+                    position: "absolute", bottom: "-16px", right: "8px",
+                    fontFamily: "'Syne', sans-serif", fontWeight: 800,
+                    fontSize: "7rem", lineHeight: 1,
+                    color: "rgba(255,255,255,0.1)", userSelect: "none",
+                    letterSpacing: "-0.04em",
+                  }}>{String(lesson.id).padStart(2, "0")}</span>
+                  <div style={{
+                    position: "relative", zIndex: 1, height: "100%",
+                    display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
+                    padding: "24px", textAlign: "center",
+                  }}>
+                    <div style={{ fontSize: "3.8rem", marginBottom: "14px", filter: "drop-shadow(0 4px 16px rgba(0,0,0,0.5))" }}>
+                      {lesson.icon}
+                    </div>
+                    <div style={{
+                      display: "inline-block", padding: "5px 14px", borderRadius: "999px",
+                      background: pal.bg, border: `1px solid ${pal.border}`,
+                    }}>
+                      <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "11px", color: pal.secondary, letterSpacing: "0.06em" }}>
+                        Lesson {String(lesson.id).padStart(2, "0")}
+                      </span>
+                    </div>
+                  </div>
+                </>
+              )}
 
               {/* Corner accent */}
               <div style={{
@@ -90,7 +137,6 @@ export default function LessonCard({ lesson, isReversed, onNavigate }) {
 
           {/* Content */}
           <div style={{ direction: "ltr" }}>
-            {/* Number + label */}
             <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
               <span style={{
                 fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: "3.5rem",
@@ -117,30 +163,34 @@ export default function LessonCard({ lesson, isReversed, onNavigate }) {
               color: "rgba(240,240,248,0.78)", lineHeight: 1.75, marginBottom: "22px",
             }}>{lesson.description}</p>
 
-            {/* Topics */}
             <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginBottom: "28px" }}>
               {lesson.topics.map((t) => (
                 <span key={t} className="chip">{t}</span>
               ))}
             </div>
 
-            {/* CTA */}
+            {/* CTA — navigates to lesson page */}
             <button
-              onClick={() => onNavigate(lesson.href)}
+              onClick={handleNavigate}
+              disabled={!lesson.lessonPagePath}
               style={{
                 display: "inline-flex", alignItems: "center", gap: "8px",
-                padding: "10px 20px", borderRadius: "6px", cursor: "pointer",
+                padding: "10px 20px", borderRadius: "6px",
+                cursor: lesson.lessonPagePath ? "pointer" : "not-allowed",
+                opacity: lesson.lessonPagePath ? 1 : 0.45,
                 fontFamily: "'DM Mono', monospace", fontSize: "12px", fontWeight: 500, letterSpacing: "0.05em",
                 background: pal.bg, border: `1px solid ${pal.border}`, color: pal.secondary,
                 transition: "all 0.2s",
               }}
               onMouseEnter={e => {
+                if (!lesson.lessonPagePath) return;
                 e.currentTarget.style.background = pal.primary;
                 e.currentTarget.style.color = "#0f0f12";
                 e.currentTarget.style.borderColor = pal.primary;
                 e.currentTarget.style.fontWeight = "600";
               }}
               onMouseLeave={e => {
+                if (!lesson.lessonPagePath) return;
                 e.currentTarget.style.background = pal.bg;
                 e.currentTarget.style.color = pal.secondary;
                 e.currentTarget.style.borderColor = pal.border;

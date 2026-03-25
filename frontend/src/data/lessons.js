@@ -1,17 +1,10 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // LESSON NAVIGATION CONFIGURATION
 //
-// For each lesson you can set:
-//   externalUrl  — if set, clicking the lesson in the Drawer opens this URL
-//                  in a new browser tab (e.g. a Wix page, Google Site, etc.)
-//                  Leave as "" to use the internal lesson page instead.
-//
-//   lessonPagePath — internal React Router path for lessons that have a
-//                    dedicated page built in this project.
-//                    Leave as "" for lessons without an internal page yet.
+// For each lesson:
+//   externalUrl  — Opens in new tab (used by Drawer and Footer)
+//   lessonPagePath — Internal navigation (used by Lesson Cards)
 // ─────────────────────────────────────────────────────────────────────────────
-
-// 4 wala pa
 
 export const lessons = [
   {
@@ -25,9 +18,10 @@ export const lessons = [
       "Explore the physical components that make up a computer system—from CPUs and RAM to storage drives and motherboards. Understand how hardware components interact and influence overall system performance.",
     image: "https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg",
     topics: ["CPU Architecture", "Memory (RAM)", "Storage Devices", "Motherboards", "I/O Interfaces"],
-    href: "#lesson-1",
-    externalUrl: "https://cyne-16.github.io/comp/",          // ← paste Wix/web link here to open in new tab
+    href: "/lesson/1",
+    externalUrl: "https://cyne-16.github.io/comp/",
     lessonPagePath: "/lesson/1",
+    image: "",
   },
   {
     id: 2,
@@ -40,9 +34,10 @@ export const lessons = [
       "Dive into the mathematical foundations of computing. Learn binary, octal, decimal, and hexadecimal systems and how computers use them to represent and process all kinds of data.",
     image: "https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg",
     topics: ["Binary", "Hexadecimal", "Octal", "Conversions", "Arithmetic Operations"],
-    href: "#lesson-2",
+    href: "/lesson-2",
     externalUrl: "https://fsco101.github.io/G2-Number-System/",
     lessonPagePath: "/lesson/2",
+    image: "",
   },
   {
     id: 3,
@@ -55,9 +50,10 @@ export const lessons = [
       "Understand how data is encoded, stored, and transmitted across different systems. From ASCII and Unicode to JSON, XML, and binary formats—learn how format choice impacts compatibility and performance.",
     image: "https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg",
     topics: ["ASCII & Unicode", "JSON & XML", "Binary Formats", "Compression", "Encoding Standards"],
-    href: "#lesson-3",
+    href: "/lesson-3",
     externalUrl: "https://ronaldajusan0.github.io/Computer-Systems-and-Platform-Technologies/",
     lessonPagePath: "/lesson/3",
+    image: "",
   },
   {
     id: 4,
@@ -70,9 +66,10 @@ export const lessons = [
       "Discover the software layer that manages hardware resources and provides services for applications. Explore Windows, Linux, macOS, and mobile OS architectures, process management, and file systems.",
     image: "https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg",
     topics: ["Process Management", "File Systems", "Memory Management", "Linux & Windows", "OS Security"],
-    href: "#lesson-4",
-    externalUrl: "",          // ← paste Wix/web link here
-    lessonPagePath: "",
+    href: "/lesson-4",
+    externalUrl: "",
+    lessonPagePath: "/lesson/4",
+    image: "",
   },
   {
     id: 5,
@@ -85,9 +82,10 @@ export const lessons = [
       "Survey the landscape of computing environments—from personal desktops and servers to cloud infrastructure and edge computing. Understand how platforms shape application deployment and scalability.",
     image: "https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg",
     topics: ["Cloud Computing", "Edge Computing", "Virtualization", "Containers", "HPC"],
-    href: "#lesson-5",
+    href: "/lesson-5",
     externalUrl: "https://delrosariomarkkent.wixsite.com/computer-systems-and",
     lessonPagePath: "/lesson/5",
+    image: "",
   },
   {
     id: 6,
@@ -100,9 +98,10 @@ export const lessons = [
       "Learn how organizations store, retrieve, and manage structured and unstructured data. Compare relational databases like MySQL and PostgreSQL with NoSQL platforms such as MongoDB and Redis.",
     image: "https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg",
     topics: ["SQL Databases", "NoSQL", "Data Modeling", "Query Optimization", "Database Security"],
-    href: "#lesson-6",
+    href: "/lesson-6",
     externalUrl: "https://jeromerosario4.github.io/Database-Platforms---Rosario-Tolin_CSPT/home",
-    lessonPagePath: "",
+    lessonPagePath: "/lesson/6",
+    image: "",
   },
   {
     id: 7,
@@ -115,9 +114,10 @@ export const lessons = [
       "Examine how data is physically and logically stored across different media and systems. From traditional HDDs and SSDs to object storage and distributed file systems like HDFS and Amazon S3.",
     image: "https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg",
     topics: ["HDD & SSD", "RAID Systems", "Object Storage", "Cloud Storage", "NAS & SAN"],
-    href: "#lesson-7",
+    href: "/lesson-7",
     externalUrl: "https://storageplatforms.vercel.app/",
     lessonPagePath: "/lesson/7",
+    image: "",
   },
   {
     id: 8,
@@ -130,9 +130,10 @@ export const lessons = [
       "Understand the platforms and runtime environments that power modern applications—from PaaS solutions like Heroku and AWS Elastic Beanstalk to serverless platforms and microservices frameworks.",
     image: "https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg",
     topics: ["PaaS", "Serverless", "Microservices", "Docker & Kubernetes", "CI/CD Pipelines"],
-    href: "#lesson-8",
+    href: "/lesson-8",
     externalUrl: "https://applicationplatforms-cspt.netlify.app/",
     lessonPagePath: "/lesson/8",
+    image: "",
   },
   {
     id: 9,
@@ -145,9 +146,10 @@ export const lessons = [
       "Explore the technologies and platforms that power the World Wide Web. Understand web servers, protocols, hosting platforms, CDNs, and the stack behind modern web applications and APIs.",
     image: "https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg",
     topics: ["HTTP/HTTPS", "Web Servers", "REST & GraphQL", "CDNs", "Web Frameworks"],
-    href: "#lesson-9",
+    href: "/lesson-9",
     externalUrl: "https://wbpltfrm.netlify.app/",
-    lessonPagePath: "",
+    lessonPagePath: "/lesson/9",
+    image: "",
   },
   {
     id: 10,
@@ -160,9 +162,10 @@ export const lessons = [
       "Learn how CMS platforms like WordPress, Drupal, and headless CMS solutions enable teams to create, manage, and publish digital content without deep programming knowledge.",
     image: "https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg",
     topics: ["WordPress", "Headless CMS", "Drupal", "Strapi", "Content Modeling"],
-    href: "#lesson-10",
+    href: "/lesson-10",
     externalUrl: "https://coolasiandude.github.io/ofraciohernandezcms.github.io/",
-    lessonPagePath: "",
+    lessonPagePath: "lesson/10",
+    image: "",
   },
   {
     id: 11,
@@ -175,9 +178,10 @@ export const lessons = [
       "Investigate the infrastructure behind audio, video, and image delivery platforms. Understand streaming protocols, media encoding, digital asset management, and platforms like YouTube and Vimeo.",
     image: "https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg",
     topics: ["Video Streaming", "Audio Platforms", "Transcoding", "CDN for Media", "DAM Systems"],
-    href: "#lesson-11",
+    href: "/lesson-11",
     externalUrl: "https://aiagarciaa2205.wixsite.com/mediaplatforms",
-    lessonPagePath: "",
+    lessonPagePath: "/lesson/11",
+    image: "",
   },
   {
     id: 12,
@@ -190,9 +194,10 @@ export const lessons = [
       "Discover how businesses extract insights from data using analytics platforms. From Google Analytics to Apache Spark and Power BI, learn about data pipelines, dashboards, and business intelligence.",
     image: "https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg",
     topics: ["Business Intelligence", "Data Visualization", "Big Data", "ETL Pipelines", "Reporting Tools"],
-    href: "#lesson-12",
+    href: "/lesson-12",
     externalUrl: "https://mosyhub.github.io/Analytics/AAT.html",
-    lessonPagePath: "",
+    lessonPagePath: "/lesson/12",
+    image: "",
   },
   {
     id: 13,
@@ -205,9 +210,10 @@ export const lessons = [
       "Explore the platforms and frameworks driving the AI revolution—from machine learning libraries like TensorFlow and PyTorch to cloud AI services from Google, AWS, and Microsoft Azure.",
     image: "https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg",
     topics: ["Machine Learning", "Deep Learning", "NLP", "Computer Vision", "AI Cloud Services"],
-    href: "#lesson-13",
+    href: "/lesson-13",
     externalUrl: "https://arti-intelligence.vercel.app/index.html",
-    lessonPagePath: "",
+    lessonPagePath: "/lesson/13",
+    image: "",
   },
   {
     id: 14,
@@ -220,9 +226,10 @@ export const lessons = [
       "Study the principles and platforms that protect digital systems from threats. Understand cybersecurity frameworks, encryption, identity management, firewalls, and security operations tools.",
     image: "https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg",
     topics: ["Cryptography", "Network Security", "IAM", "SIEM Platforms", "Zero Trust"],
-    href: "#lesson-14",
+    href: "/lesson-14",
     externalUrl: "https://jextalaba.wixsite.com/group14-security?fbclid=IwZXh0bgNhZW0CMTAAYnJpZBExbkJBc2NnaFd5bUpSMkZvY3NydGMGYXBwX2lkEDIyMjAzOTE3ODgyMDA4OTIAAR6HxCmZMx7Am1NbvewBKi4HdXazk4lKanJGxACUmXNTEs0sSBv1rgjj6qqe-g_aem_7H3KKhZGOUtcby49NY1yDA",
-    lessonPagePath: "",
+    lessonPagePath: "/lesson/14",
+    image: "",
   },
   {
     id: 15,
@@ -235,9 +242,10 @@ export const lessons = [
       "Learn how connected devices, sensors, and embedded systems communicate and process data. Explore IoT platforms like AWS IoT Core, Azure IoT Hub, and the protocols powering smart devices.",
     image: "https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg",
     topics: ["IoT Architecture", "MQTT Protocol", "Edge Processing", "Smart Devices", "IoT Security"],
-    href: "#lesson-15",
+    href: "/lesson-15",
     externalUrl: "https://aeronjhoncanta.github.io/iot/",
-    lessonPagePath: "",
+    lessonPagePath: "/lesson/15",
+    image: "",
   },
   {
     id: 16,
@@ -250,8 +258,9 @@ export const lessons = [
       "Explore mobile development ecosystems (iOS, Android) and game platforms (Unity, Unreal Engine, Steam). Understand app stores, game engines, monetization strategies, and cross-platform development.",
     image: "https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg",
     topics: ["iOS & Android", "React Native", "Unity & Unreal", "App Stores", "Game Monetization"],
-    href: "#lesson-16",
+    href: "/lesson-16",
     externalUrl: "https://mobile-apps-and-games-platforms.vercel.app/",
-    lessonPagePath: "",
+    lessonPagePath: "/lesson/16",
+    image: "",
   },
 ];

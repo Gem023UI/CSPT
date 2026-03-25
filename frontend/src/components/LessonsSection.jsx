@@ -1,11 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { lessons } from "../data/lessons";
 import LessonCard from "./LessonCard";
 
 export default function LessonsSection() {
+  const navigate = useNavigate();
+
   const handleNavigate = (href) => {
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    if (href && href.startsWith("/")) {
+      navigate(href);
+    }
   };
 
   return (
@@ -38,7 +42,6 @@ export default function LessonsSection() {
           key={lesson.id}
           lesson={lesson}
           isReversed={index % 2 !== 0}
-          onNavigate={handleNavigate}
         />
       ))}
     </div>

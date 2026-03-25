@@ -5,6 +5,13 @@ export default function Footer() {
   const col1 = lessons.slice(0, 8);
   const col2 = lessons.slice(8, 16);
 
+  const handleLessonClick = (lesson) => {
+    // Footer should ONLY open external URLs
+    if (lesson.externalUrl) {
+      window.open(lesson.externalUrl, "_blank", "noopener,noreferrer");
+    }
+  };
+
   return (
     <footer style={{
       background: "#0f0f12",
@@ -60,16 +67,35 @@ export default function Footer() {
             <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "8px" }}>
               {col1.map((l) => (
                 <li key={l.id}>
-                  <a href={l.href} style={{
-                    display: "flex", alignItems: "center", gap: "8px",
-                    fontFamily: "'DM Mono', monospace", fontSize: "11px",
-                    color: "rgba(240,240,248,0.72)", transition: "all 0.15s",
-                  }}
-                    onMouseEnter={e => { e.currentTarget.style.color = "#c4a0ff"; e.currentTarget.style.paddingLeft = "4px"; }}
-                    onMouseLeave={e => { e.currentTarget.style.color = "rgba(240,240,248,0.72)"; e.currentTarget.style.paddingLeft = "0"; }}
+                  <button
+                    onClick={() => handleLessonClick(l)}
+                    disabled={!l.externalUrl}
+                    style={{
+                      display: "flex", alignItems: "center", gap: "8px",
+                      fontFamily: "'DM Mono', monospace", fontSize: "11px",
+                      color: l.externalUrl ? "rgba(240,240,248,0.72)" : "rgba(240,240,248,0.4)",
+                      transition: "all 0.15s",
+                      background: "none", border: "none", 
+                      cursor: l.externalUrl ? "pointer" : "default",
+                      width: "100%", textAlign: "left", padding: "4px 0"
+                    }}
+                    onMouseEnter={e => {
+                      if (l.externalUrl) {
+                        e.currentTarget.style.color = "#c4a0ff";
+                        e.currentTarget.style.paddingLeft = "4px";
+                      }
+                    }}
+                    onMouseLeave={e => {
+                      if (l.externalUrl) {
+                        e.currentTarget.style.color = "rgba(240,240,248,0.72)";
+                        e.currentTarget.style.paddingLeft = "0";
+                      }
+                    }}
                   >
-                    <span>{l.icon}</span><span>{l.shortTitle}</span>
-                  </a>
+                    <span>{l.icon}</span>
+                    <span>{l.shortTitle}</span>
+                    {l.externalUrl && <span style={{ fontSize: "10px", marginLeft: "auto" }}>↗</span>}
+                  </button>
                 </li>
               ))}
             </ul>
@@ -83,16 +109,35 @@ export default function Footer() {
             <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "8px" }}>
               {col2.map((l) => (
                 <li key={l.id}>
-                  <a href={l.href} style={{
-                    display: "flex", alignItems: "center", gap: "8px",
-                    fontFamily: "'DM Mono', monospace", fontSize: "11px",
-                    color: "rgba(240,240,248,0.72)", transition: "all 0.15s",
-                  }}
-                    onMouseEnter={e => { e.currentTarget.style.color = "#F472B6"; e.currentTarget.style.paddingLeft = "4px"; }}
-                    onMouseLeave={e => { e.currentTarget.style.color = "rgba(240,240,248,0.72)"; e.currentTarget.style.paddingLeft = "0"; }}
+                  <button
+                    onClick={() => handleLessonClick(l)}
+                    disabled={!l.externalUrl}
+                    style={{
+                      display: "flex", alignItems: "center", gap: "8px",
+                      fontFamily: "'DM Mono', monospace", fontSize: "11px",
+                      color: l.externalUrl ? "rgba(240,240,248,0.72)" : "rgba(240,240,248,0.4)",
+                      transition: "all 0.15s",
+                      background: "none", border: "none",
+                      cursor: l.externalUrl ? "pointer" : "default",
+                      width: "100%", textAlign: "left", padding: "4px 0"
+                    }}
+                    onMouseEnter={e => {
+                      if (l.externalUrl) {
+                        e.currentTarget.style.color = "#F472B6";
+                        e.currentTarget.style.paddingLeft = "4px";
+                      }
+                    }}
+                    onMouseLeave={e => {
+                      if (l.externalUrl) {
+                        e.currentTarget.style.color = "rgba(240,240,248,0.72)";
+                        e.currentTarget.style.paddingLeft = "0";
+                      }
+                    }}
                   >
-                    <span>{l.icon}</span><span>{l.shortTitle}</span>
-                  </a>
+                    <span>{l.icon}</span>
+                    <span>{l.shortTitle}</span>
+                    {l.externalUrl && <span style={{ fontSize: "10px", marginLeft: "auto" }}>↗</span>}
+                  </button>
                 </li>
               ))}
             </ul>
@@ -105,15 +150,15 @@ export default function Footer() {
             © 2025 BSIT-S3A · Computer System &amp; Platform Technologies · All rights reserved.
           </p>
           <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
-            <a href="#home" style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", color: "#9D56FF", letterSpacing: "0.06em", transition: "color 0.15s" }}
+            <a href="#home" style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", color: "#9D56FF", letterSpacing: "0.06em", transition: "color 0.15s", textDecoration: "none" }}
               onMouseEnter={e => e.currentTarget.style.color = "#c4a0ff"}
               onMouseLeave={e => e.currentTarget.style.color = "#9D56FF"}
             >↑ Back to Top</a>
-            <a href="#ppt-compilation" style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", color: "rgba(240,240,248,0.6)", transition: "color 0.15s" }}
+            <a href="#ppt-compilation" style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", color: "rgba(240,240,248,0.6)", transition: "color 0.15s", textDecoration: "none" }}
               onMouseEnter={e => e.currentTarget.style.color = "rgba(240,240,248,0.75)"}
               onMouseLeave={e => e.currentTarget.style.color = "rgba(240,240,248,0.6)"}
             >PPT Compilation</a>
-            <a href="#proprietors" style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", color: "rgba(240,240,248,0.6)", transition: "color 0.15s" }}
+            <a href="#proprietors" style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", color: "rgba(240,240,248,0.6)", transition: "color 0.15s", textDecoration: "none" }}
               onMouseEnter={e => e.currentTarget.style.color = "rgba(240,240,248,0.75)"}
               onMouseLeave={e => e.currentTarget.style.color = "rgba(240,240,248,0.6)"}
             >Proprietors</a>

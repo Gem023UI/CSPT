@@ -9,24 +9,14 @@ const accentColors = [
 
 export default function Drawer({ isOpen, onClose }) {
   const handleLessonClick = (lesson) => {
-    // 1. If an external URL is set → open in a new browser tab
+    // Drawer should ONLY open external URLs in new tabs
     if (lesson.externalUrl) {
       window.open(lesson.externalUrl, "_blank", "noopener,noreferrer");
       onClose();
       return;
     }
-    // 2. If a dedicated internal lesson page exists → navigate to it
-    if (lesson.lessonPagePath) {
-      onClose();
-      window.location.href = lesson.lessonPagePath;
-      return;
-    }
-    // 3. Fall back to smooth-scroll anchor on the homepage
+    // If no external URL, just close drawer
     onClose();
-    setTimeout(() => {
-      const el = document.querySelector(lesson.href);
-      if (el) el.scrollIntoView({ behavior: "smooth" });
-    }, 300);
   };
 
   return (
@@ -96,19 +86,31 @@ export default function Drawer({ isOpen, onClose }) {
             {lessons.map((lesson) => {
               const accent = accentColors[(lesson.id - 1) % 3];
               const hasExternal = !!lesson.externalUrl;
-              const hasPage = !!lesson.lessonPagePath;
               return (
                 <li key={lesson.id}>
                   <button
                     onClick={() => handleLessonClick(lesson)}
+                    disabled={!hasExternal}
                     style={{
                       width: "100%", textAlign: "left", display: "flex", alignItems: "center", gap: "10px",
                       padding: "8px 10px", borderRadius: "7px",
                       background: "transparent", border: "1px solid transparent",
-                      cursor: "pointer", transition: "all 0.15s",
+                      cursor: hasExternal ? "pointer" : "default",
+                      opacity: hasExternal ? 1 : 0.5,
+                      transition: "all 0.15s",
                     }}
-                    onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.06)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.12)"; }}
-                    onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.borderColor = "transparent"; }}
+                    onMouseEnter={e => {
+                      if (hasExternal) {
+                        e.currentTarget.style.background = "rgba(255,255,255,0.06)";
+                        e.currentTarget.style.borderColor = "rgba(255,255,255,0.12)";
+                      }
+                    }}
+                    onMouseLeave={e => {
+                      if (hasExternal) {
+                        e.currentTarget.style.background = "transparent";
+                        e.currentTarget.style.borderColor = "transparent";
+                      }
+                    }}
                   >
                     <span style={{
                       flexShrink: 0, width: "32px", height: "32px",
@@ -124,18 +126,20 @@ export default function Drawer({ isOpen, onClose }) {
                           {lesson.shortTitle}
                         </span>
                       </div>
-                      {(hasExternal || hasPage) && (
+                      {hasExternal && (
                         <span style={{
                           fontFamily: "'DM Mono', monospace", fontSize: "9px", letterSpacing: "0.06em",
-                          color: hasExternal ? "#F472B6" : "#9D56FF", marginTop: "1px", display: "block",
+                          color: "#F472B6", marginTop: "1px", display: "block",
                         }}>
-                          {hasExternal ? "↗ opens new tab" : "→ lesson page"}
+                          ↗ opens new tab
                         </span>
                       )}
                     </div>
-                    <span style={{ color: "rgba(240,240,248,0.35)", fontSize: "12px" }}>
-                      {hasExternal ? "↗" : "›"}
-                    </span>
+                    {hasExternal && (
+                      <span style={{ color: "rgba(240,240,248,0.35)", fontSize: "12px" }}>
+                        ↗
+                      </span>
+                    )}
                   </button>
                 </li>
               );
@@ -149,7 +153,7 @@ export default function Drawer({ isOpen, onClose }) {
             <a href="#ppt-compilation" onClick={onClose} style={{
               flex: 1, textAlign: "center", padding: "9px", borderRadius: "6px",
               fontFamily: "'DM Mono', monospace", fontSize: "11px", letterSpacing: "0.05em",
-              border: "1px solid rgba(255,255,255,0.16)", color: "rgba(240,240,248,0.75)", transition: "all 0.15s",
+              border: "1px solid rgba(255,255,255,0.16)", color: "rgba(240,240,248,0.75)", transition: "all 0.15s", textDecoration: "none",
             }}
               onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.28)"; e.currentTarget.style.color = "#F0F0F8"; e.currentTarget.style.background = "rgba(255,255,255,0.06)"; }}
               onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.16)"; e.currentTarget.style.color = "rgba(240,240,248,0.75)"; e.currentTarget.style.background = "transparent"; }}
@@ -157,7 +161,7 @@ export default function Drawer({ isOpen, onClose }) {
             <a href="#proprietors" onClick={onClose} style={{
               flex: 1, textAlign: "center", padding: "9px", borderRadius: "6px",
               fontFamily: "'DM Mono', monospace", fontSize: "11px", fontWeight: 600, letterSpacing: "0.05em",
-              background: "#F472B6", color: "#0f0f12", transition: "all 0.15s",
+              background: "#F472B6", color: "#0f0f12", transition: "all 0.15s", textDecoration: "none",
             }}
               onMouseEnter={e => { e.currentTarget.style.background = "#f990c8"; }}
               onMouseLeave={e => { e.currentTarget.style.background = "#F472B6"; }}

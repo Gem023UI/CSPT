@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { lessons } from "../data/lessons";
 
 const accents = [
@@ -7,7 +8,15 @@ const accents = [
   { border: "rgba(254,243,199,0.25)", bg: "rgba(254,243,199,0.07)", text: "#FEF3C7",  iconBorder: "rgba(254,243,199,0.3)" },
 ];
 
-export default function LessonOverview({ onNavigate }) {
+export default function LessonOverview() {
+  const navigate = useNavigate();
+
+  const handleNavigate = (href) => {
+    if (href && href.startsWith("/")) {
+      navigate(href);
+    }
+  };
+
   return (
     <section style={{ padding: "88px 0", borderBottom: "1px solid rgba(255,255,255,0.13)" }}>
       <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 28px" }}>
@@ -40,7 +49,7 @@ export default function LessonOverview({ onNavigate }) {
               <div
                 key={lesson.id}
                 className="panel panel-hover"
-                onClick={() => onNavigate(lesson.href)}
+                onClick={() => handleNavigate(lesson.href)}
                 style={{ padding: "18px", cursor: "pointer", display: "flex", flexDirection: "column", gap: "12px" }}
               >
                 <div style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>
