@@ -67,7 +67,7 @@ export const lessons = [
     image: "https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg",
     topics: ["Process Management", "File Systems", "Memory Management", "Linux & Windows", "OS Security"],
     href: "/lesson-4",
-    externalUrl: "",
+    externalUrl: "https://operating-systems-iota.vercel.app/",
     lessonPagePath: "/lesson/4",
     image: "",
   },

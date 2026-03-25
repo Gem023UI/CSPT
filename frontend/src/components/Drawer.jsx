@@ -165,7 +165,7 @@ export default function Drawer({ isOpen, onClose }) {
             }}
               onMouseEnter={e => { e.currentTarget.style.background = "#f990c8"; }}
               onMouseLeave={e => { e.currentTarget.style.background = "#F472B6"; }}
-            >Proprietors</a>
+            >BSIT -S3A</a>
           </div>
           <p style={{ textAlign: "center", fontFamily: "'DM Mono', monospace", fontSize: "10px", color: "rgba(240,240,248,0.3)", letterSpacing: "0.06em" }}>
             © 2025 BSIT-S3A · All rights reserved
